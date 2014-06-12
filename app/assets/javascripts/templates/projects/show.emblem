@@ -1,0 +1,3 @@
+if currentUserHasRole
+  .edit-button Edit
+h2 = title

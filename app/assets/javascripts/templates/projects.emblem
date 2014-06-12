@@ -1,0 +1,7 @@
+h1 Projects
+ul.images-list
+  each
+    li = link-to 'projects.show' this
+      = title
+
+== outlet

@@ -1,0 +1,9 @@
+Ember.TextField type="hidden" valueBinding="id"
+Ember.TextField type="hidden" valueBinding="_destroy"
+unless _destroy
+  li.form-fields__item
+    user-autocomplete-setter
+  li.form-fields__item
+    = input name
+  li.form-fields__item
+    = input title

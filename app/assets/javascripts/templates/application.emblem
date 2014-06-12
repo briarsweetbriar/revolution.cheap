@@ -1,0 +1,8 @@
+if session.isAuthenticated
+  a click='invalidateSession' id="logout_link"
+    | Logout
+else
+  link-to 'login' id="login_link"
+    | Login
+
+== outlet

@@ -1,0 +1,11 @@
+h1 Login
+
+form
+  label for="identification"
+    | Email:
+  Ember.TextField id="identification" valueBinding="identification" autocomplete="off"
+
+  label for="password"
+    | Password:
+  Ember.TextField id="password" valueBinding="password" type="password" autocomplete="off"
+  button click="authenticate" id="login_button" Login

@@ -1,0 +1,25 @@
+form-for model
+  ul.form-fields
+    li.form-fields__item
+      = input title
+      if errors.title
+        .error-block.mt-s
+          each error in errors.title
+            p = error.message
+    li.form-fields__item
+      = input description as="text"
+      if errors.description
+        .error-block.mt-s
+          each error in errors.description
+            p = error.message
+
+    each projectRoles
+      div class=this._destroy:hidden:shown
+        hr.rule
+        a click="removeUser this" X
+        = render "projects/roles/fields" this
+
+    button.btn click="addUser" Add User
+
+    li.form-fields__button
+      submit

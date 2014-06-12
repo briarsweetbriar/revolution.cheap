@@ -1,0 +1,7 @@
+h1 About Us
+ul.members-list
+  each
+    li = link-to 'members.show' this
+      = username
+
+== outlet

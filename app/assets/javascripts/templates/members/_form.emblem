@@ -1,0 +1,6 @@
+form-for model
+  ul.form-fields
+    li.form-fields__item
+      = input username
+    li.form-fields__button
+      submit
