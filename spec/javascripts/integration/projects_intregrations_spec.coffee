@@ -28,7 +28,7 @@ test "renders project", ->
     equal header_text, expected_result, "Expected: #{ expected_result }, got: #{ header_text }"
 
 test "renders edit button if currentUser has a projectRole", ->
-  login
+  login()
   andThen ->
     visit "/projects/project_1"
     andThen ->
@@ -36,12 +36,12 @@ test "renders edit button if currentUser has a projectRole", ->
       ok edit_length >= 1, "Edit button not found"
 
 test "does not render edit button if currentUser has no projectRole", ->
-  login
+  login()
   andThen ->
     visit "/projects/project_2"
     andThen ->
       edit_length = find(".edit-button").length
-      ok edit_length is 0, "Edit button not found"
+      ok edit_length is 0, "Edit button present"
 
 test "Show input for new project", ->
   visit("/projects/new")
@@ -52,7 +52,7 @@ test "Show input for new project", ->
 test "Adding a new project", ->
   visit("/projects/new")
   fillIn "input[name='title']", "Valid Project"
-  click ".form-fields__button input"
+  click "#submit_button"
   andThen ->
     header_text = find("h2").text()
     expected_result = "Valid Project"
@@ -61,7 +61,7 @@ test "Adding a new project", ->
 test "Adding a new project with invalid attributes", ->
   visit("/projects/new")
   fillIn "input[name='title']", "Invalid Project"
-  click ".form-fields__button input"
+  click "#submit_button"
   andThen ->
     error_text = find(".error-block p").text()
     expected_result = "is invalid"

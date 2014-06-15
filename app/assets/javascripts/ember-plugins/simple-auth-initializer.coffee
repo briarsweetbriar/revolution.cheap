@@ -8,6 +8,10 @@ Ember.Application.initializer
           container.lookup('store:main').find('user', userId)
       ).property('user_id')
 
+      userId: (->
+        @get('user_id') || null
+      ).property('user_id')
+
     Ember.SimpleAuth.setup container, application,
       authorizerFactory: "ember-simple-auth-authorizer:devise"
       routeAfterAuthentication: 'home'

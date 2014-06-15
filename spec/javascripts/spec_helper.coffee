@@ -51,12 +51,12 @@ QUnit.testStart = ->
     id: 1
     title: "Project 1"
     slug: "project_1"
-    project_roles_ids: [ 1 ]
+    project_role_ids: [ 1 ]
   ,
     id: 2
     title: "Project 2"
     slug: "project_2"
-    project_roles_ids: [ 2 ]
+    project_role_ids: [ 2 ]
   ]
   projectRoles = [
     id: 1
@@ -71,12 +71,12 @@ QUnit.testStart = ->
     id: 1
     username: "User 1"
     slug: "user_1"
-    project_roles_ids: [ 1 ]
+    project_role_ids: [ 1 ]
   ,
     id: 2
     username: "User 2"
     slug: "user_2"
-    project_roles_ids: [ 2 ]
+    project_role_ids: [ 2 ]
   ]
   server = new Pretender(->
     @get "/projects", (request) ->
@@ -96,40 +96,40 @@ QUnit.testStart = ->
       if $.parseJSON(request.requestBody).project.title == "Valid Project"
         [ 200,
           "Content-Type": "application/json"
-        , JSON.stringify(projects: [ { "id": 3, "title": "Valid Project", "slug": "valid_project" } ]) ]
+        , JSON.stringify(project: { "id": 3, "title": "Valid Project", "slug": "valid_project" } ) ]
       else
         [ 422,
           "Content-Type": "application/json"
         , JSON.stringify({ "errors": { "title": "is invalid" } }) ]
 
-    @get "/project_roles", (request) ->
-      [ 200,
-        "Content-Type": "application/json"
-      , JSON.stringify(projects: project_roles) ]
-
-    @get "project_roles/:project_role_id", (request) ->
-      project_role = project_roles.find((project_role) ->
+    @get "project_roles/:id", (request) ->
+      project_role = projectRoles.find((project_role) ->
         project_role  if project_role.id is request.params.id
       )
       [ 200,
         "Content-Type": "application/json"
-      , JSON.stringify(project: project_role) ]
+      , JSON.stringify(project_role: project_role) ]
+
+    @get "/project_roles", (request) ->
+      [ 200,
+        "Content-Type": "application/json"
+      , JSON.stringify(project_roles: projectRoles) ]
 
     @post "/users/sign_in", (request) ->
       [ 200,
         "Content-Type": "application/json"
       , JSON.stringify({ "user_token": "auth-token", "user_email": "user@email.com", "user_id": 1 }) ]
 
-    @get "/users", (request) ->
-      [ 200,
-        "Content-Type": "application/json"
-      , JSON.stringify(users: users) ]
-
     @get "users/:user_id", (request) ->
       user = users.find((user) ->
-        user  if user.slug is request.params.user_id
+        user  if user.slug is request.params.user_id or user.id.toString() is request.params.user_id
       )
       [ 200,
         "Content-Type": "application/json"
       , JSON.stringify(user: user) ]
+
+    @get "/users", (request) ->
+      [ 200,
+        "Content-Type": "application/json"
+      , JSON.stringify(users: users) ]
   )

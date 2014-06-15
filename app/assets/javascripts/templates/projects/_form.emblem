@@ -22,4 +22,4 @@ form-for model
     button.btn click="addUser" Add User
 
     li.form-fields__button
-      submit
+      submit id="submit_button"

@@ -5,4 +5,7 @@ else
   link-to 'login' id="login_link"
     | Login
 
+link-to 'projects'
+  | Projects
+
 == outlet
