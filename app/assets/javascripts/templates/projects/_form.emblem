@@ -4,14 +4,16 @@ form-for model
       = input title
       error-block errors=errors.title
     li.form-fields__item
-      = input description as="text"
-      error-block errors=errors.description
-    li.form-fields__item
       = input source
       error-block errors=errors.source
     li.form-fields__item
       = input website
       error-block errors=errors.website
+    li.form-fields__item
+      Revolution.FileFieldView parentObject=this recordType="projectLogo"
+    li.form-fields__item
+      Revolution.MarkdownEditor value=description placeholder="Project description"
+      error-block errors=errors.description
 
     each projectRoles
       div class=this._destroy:hidden:shown

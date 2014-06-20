@@ -1,0 +1,3 @@
+= link-to route item classNames="image-list__link"
+  img.image-list__img src=item.logoUrl
+  .image-list__title = item.title

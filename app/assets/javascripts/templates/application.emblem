@@ -6,7 +6,7 @@
     span.logo__dot .
     span.logo__cheap cheap
 
-header.header
+header#header.header.alt-font.m-b-large
   ul.nav
     li.nav__item
       link-to 'home' classNames="nav__link"
@@ -25,4 +25,5 @@ header.header
         link-to 'login' id="login_link" class="nav__link"
           | Login
 
-== outlet
+section.main
+  == outlet

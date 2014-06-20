@@ -1,4 +1,5 @@
 class Project < ActiveRecord::Base
+  attr_accessor :project_logo_id
   include ActsAsTaggable
   include ValidatorRegex
 
@@ -18,10 +19,19 @@ class Project < ActiveRecord::Base
 
   accepts_nested_attributes_for :project_roles, allow_destroy: true
 
+  after_save :set_project_logo
+
   def users_include?(user_in_question)
     users.each do |user|
       return true if user == user_in_question
     end
     return false
+  end
+
+  private
+  def set_project_logo
+    project_logo = ProjectLogo.find(project_logo_id)
+    project_logo.project = self
+    project_logo.save
   end
 end

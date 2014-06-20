@@ -1,16 +1,19 @@
 .header
   width: 100%
-  border-top: dashed 3px $main-color
-  text-align: center
+  border-top: dashed 7px $main-color
+  font-size: 3vw
+  background-color: $main-background-color
 
 .nav
-  list-style-type: none
-  margin: 0 auto
-  padding: 0
+  @extend .nude-list
+  width: 100%
+  li:first-child
+    width: 38%
+    text-align: right
 
 .nav__item
   display: inline-block
-  .nav__link:focus, .nav__link:hover, .nav__link.active
+  .nav__link.active, .nav__link:hover, .nav__link:focus
     outline: none
     background-color: $main-color
     color: $main-background-color

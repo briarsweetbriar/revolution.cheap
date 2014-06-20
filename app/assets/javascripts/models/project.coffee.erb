@@ -5,8 +5,13 @@ Revolution.Project = DS.Model.extend(
   title: DS.attr("string")
   website: DS.attr("string")
 
-  logo: DS.belongsTo("projectLogo")
+  projectLogo: DS.belongsTo("projectLogo")
   slideshow: DS.belongsTo("slideshow")
   projectRoles: DS.hasMany "projectRole",
     async: true
+
+  logoUrl: (->
+    logoUrl = @get("projectLogo.file.file.url")
+    if logoUrl? then logoUrl else "<%= asset_path('logo-star--medium.png') %>"
+  ).property("projectLogo.file.file.url")
 )

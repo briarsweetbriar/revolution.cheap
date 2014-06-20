@@ -12,7 +12,7 @@ Revolution.MarkdownEditor = Em.TextArea.extend(
 
   didInsertElement: ->
     $("##{@get('elementId')}").before("<div id='#{@get("buttonBarId")}'></div>")
-    editor = new Markdown.Editor(Rebolution.markdown, '-'+ @get('random'))
+    editor = new Markdown.Editor(Revolution.markdown, '-'+ @get('random'))
     editor.run()
 
 )

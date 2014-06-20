@@ -1,4 +1,5 @@
 Revolution.ProjectsShowController = Ember.ObjectController.extend(
+  needs: ['projects']
 
   currentUserHasRole: false
 

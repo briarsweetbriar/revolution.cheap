@@ -1,6 +1,11 @@
-if currentUserHasRole
-  link-to 'projects.show.edit' classNames="edit-button"
-    | Edit
-h2 = title
-
+.media
+  img.media__img src=logoUrl
+  .media__bd
+    h1.d-ib.alt-font = title
+    if currentUserHasRole
+      link-to 'projects.show.edit' classNames="edit-button d-ib m-l"
+        | Edit
+    
 = outlet
+
+format-markdown description

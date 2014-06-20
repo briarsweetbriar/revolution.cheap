@@ -1,0 +1,30 @@
+.image-list
+  @extend .nude-list
+  text-align: center
+
+.image-list--cinched
+  height: 20vh
+  overflow-y: auto
+  .image-list__item
+    margin: 0 1vh
+  .image-list__img
+    max-width: 15vh
+  .image-list__title
+    font-size: 2.5vh
+
+.image-list__item
+  display: inline-block
+  vertical-align: top
+  text-align: center
+  margin: 2vw
+  .image-list__link:hover, .image-list__link:focus, .image-list__link.active
+    outline: none
+    @include opacity(100)
+
+.image-list__link
+  @include opacity(50)
+  text-decoration: none
+  color: $main-color
+
+.image-list__img
+  max-width: 15vw

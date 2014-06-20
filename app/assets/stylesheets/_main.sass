@@ -3,16 +3,17 @@ html, body, .ember-view
 
 body
   background-color: $main-background-color
+  color: $main-color
+  font-family: $main-font
+  font-size: 2vw
 
-@mixin transition($speed)
-  -webkit-transition: all $speed ease               
-  -moz-transition: all $speed ease               
-  -o-transition: all $speed ease
-  -ms-transition: all $speed ease   
-  transition: all $speed ease
+@mixin opacity($value)
+  -moz-opacity: $value/100!important
+  -khtml-opacity: $value/100!important
+  opacity: $value/100!important
+  filter: alpha(opacity = $value)!important
 
 *
-  @include transition(0.5s)
   -moz-box-sizing: border-box
   -webkit-box-sizing: border-box
   box-sizing: border-box
