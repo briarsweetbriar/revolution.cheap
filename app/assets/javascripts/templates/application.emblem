@@ -1,6 +1,6 @@
 .logo
   span.logo__left.logo__component
-    span.logo__star *
+    img.logo__star src=logoSrc
     span.logo__dot .
   span.logo__right.logo__component
     span.logo__dot .
