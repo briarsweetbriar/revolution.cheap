@@ -1,0 +1,20 @@
+html, body, .ember-view
+  height: 100%
+
+body
+  background-color: $main-background-color
+
+@mixin transition($speed)
+  -webkit-transition: all $speed ease               
+  -moz-transition: all $speed ease               
+  -o-transition: all $speed ease
+  -ms-transition: all $speed ease   
+  transition: all $speed ease
+
+*
+  @include transition(0.5s)
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+  background-repeat: no-repeat
+  position: relative

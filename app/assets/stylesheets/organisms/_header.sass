@@ -1,0 +1,26 @@
+.header
+  width: 100%
+  border-top: dashed 3px $main-color
+  text-align: center
+
+.nav
+  list-style-type: none
+  margin: 0 auto
+  padding: 0
+
+.nav__item
+  display: inline-block
+
+.nav__link
+  @extend .p-e-big
+  @extend .p-s-huge
+  width: 100%
+  display: inline-block
+  text-decoration: none
+  color: $main-color
+  cursor: pointer
+  &:focus
+    outline: none
+  &:hover
+    background-color: $main-color
+    color: $main-background-color

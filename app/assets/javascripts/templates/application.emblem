@@ -1,11 +1,28 @@
-if session.isAuthenticated
-  a click='invalidateSession' id="logout_link"
-    | Logout
-else
-  link-to 'login' id="login_link"
-    | Login
+.logo
+  span.logo__left.logo__component
+    span.logo__star *
+    span.logo__dot .
+  span.logo__right.logo__component
+    span.logo__dot .
+    span.logo__cheap cheap
 
-link-to 'projects'
-  | Projects
+header.header
+  ul.nav
+    li.nav__item
+      link-to 'home' classNames="nav__link"
+        | Blog
+    li.nav__item
+      link-to 'projects' classNames="nav__link"
+        | Projects
+    li.nav__item
+      link-to 'about_us' classNames="nav__link"
+        | About
+    li.nav__item
+      if session.isAuthenticated
+        a click='invalidateSession' id="logout_link" class="nav__link"
+          | Logout
+      else
+        link-to 'login' id="login_link" class="nav__link"
+          | Login
 
 == outlet

@@ -1,0 +1,4 @@
+if errors
+  .error-block.mt-s
+    each error in errors
+      p = error.message

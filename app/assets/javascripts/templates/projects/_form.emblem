@@ -2,16 +2,16 @@ form-for model
   ul.form-fields
     li.form-fields__item
       = input title
-      if errors.title
-        .error-block.mt-s
-          each error in errors.title
-            p = error.message
+      error-block errors=errors.title
     li.form-fields__item
       = input description as="text"
-      if errors.description
-        .error-block.mt-s
-          each error in errors.description
-            p = error.message
+      error-block errors=errors.description
+    li.form-fields__item
+      = input source
+      error-block errors=errors.source
+    li.form-fields__item
+      = input website
+      error-block errors=errors.website
 
     each projectRoles
       div class=this._destroy:hidden:shown

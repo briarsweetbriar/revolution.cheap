@@ -41,4 +41,22 @@ describe Project do
       expect(@project).to validate_uniqueness_of(:slug).case_insensitive
     end
   end
+
+  context "users_include" do
+    before :each do
+      @project = FactoryGirl.create(:project)
+      @user_1 = FactoryGirl.create(:user)
+      @user_2 = FactoryGirl.create(:user)
+      FactoryGirl.create(:project_role, project: @project, user: @user_1)
+    end
+
+    it "returns true if project has user" do
+      expect(@project.users_include?(@user_1)).to be true
+    end
+
+    it "returns false if project does not have user" do
+      expect(@project.users_include?(@user_2)).to be false
+    end
+  end
+
 end

@@ -21,6 +21,7 @@ module Revolution
     # config.i18n.default_locale = :de
 
     config.autoload_paths += Dir["#{config.root}/lib/**/*.rb"].each {|l| require l }
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
    
     config.ember.app_name = "Revolution"
     config.generators do |g|

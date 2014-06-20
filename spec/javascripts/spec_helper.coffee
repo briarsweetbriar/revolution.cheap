@@ -102,6 +102,11 @@ QUnit.testStart = ->
           "Content-Type": "application/json"
         , JSON.stringify({ "errors": { "title": "is invalid" } }) ]
 
+    @put "/projects", (request) ->
+      [ 200,
+        "Content-Type": "application/json"
+      , JSON.stringify(project: { "id": 1, "title": "Valid Project", "slug": "valid_project" } ) ]
+
     @get "project_roles/:id", (request) ->
       project_role = projectRoles.find((project_role) ->
         project_role  if project_role.id is request.params.id

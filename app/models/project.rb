@@ -6,6 +6,7 @@ class Project < ActiveRecord::Base
   friendly_id :title, use: :history
 
   has_many :project_roles, dependent: :destroy
+  has_many :users, through: :project_roles, source: :user
   has_one :project_logo, dependent: :destroy
   has_one :slideshow, as: :slideshowable, dependent: :destroy
 
@@ -16,4 +17,11 @@ class Project < ActiveRecord::Base
   validates :website, allow_blank: true, uri: { format: VALID_URI_REGEX }
 
   accepts_nested_attributes_for :project_roles, allow_destroy: true
+
+  def users_include?(user_in_question)
+    users.each do |user|
+      return true if user == user_in_question
+    end
+    return false
+  end
 end

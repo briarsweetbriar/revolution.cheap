@@ -43,6 +43,35 @@ test "does not render edit button if currentUser has no projectRole", ->
       edit_length = find(".edit-button").length
       ok edit_length is 0, "Edit button present"
 
+test "redirects if user does not have edit privileges", ->
+  visit "/projects/project_2/edit"
+  andThen ->
+    header_text = find("h1").text()
+    expected_result = "Login"
+    equal header_text, expected_result, "Expected: #{ expected_result }, got: #{ header_text }"
+
+test "click edit button to go to project edit page", ->
+  login()
+  andThen ->
+    visit "/projects/project_1"
+    andThen ->
+      click ".edit-button"
+      andThen ->
+        input_fields = find(".form-fields li").length
+        ok input_fields >= 1, "Input field not found"
+
+test "saving edits persists the changes to the project then redirects to project page", ->
+  login()
+  andThen ->
+    visit "/projects/project_1/edit"
+    andThen ->
+      fillIn "input[name='title']", "Valid Project"
+      click "#submit_button"
+      andThen ->
+        header_text = find("h2").text()
+        expected_result = "Valid Project"
+        equal header_text, expected_result, "Expected: #{ expected_result }, got: #{ header_text }"
+
 test "Show input for new project", ->
   visit("/projects/new")
   andThen ->

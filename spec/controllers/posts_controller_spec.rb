@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PostsController, :type => :controller do
+describe PostsController do
 
   describe "GET index" do
     it "assigns all posts as @posts" do

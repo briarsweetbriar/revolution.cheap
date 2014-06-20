@@ -26,11 +26,10 @@ test "The login button is only visible when logged out", ->
       ok logout_length >= 1, "Logout link not found"
 
 test "The logout button is only visible when logged in", ->
+  visit("/projects")
   andThen ->
-    visit("/projects")
-    andThen ->
-      logout_length = find("#logout_link").length
-      expected_result = 0
-      equal logout_length, expected_result, "Expected: #{ expected_result }, got: #{ logout_length }"
-      login_length = find("#login_link").length
-      ok login_length >= 1, "Login link not found"
+    logout_length = find("#logout_link").length
+    expected_result = 0
+    equal logout_length, expected_result, "Expected: #{ expected_result }, got: #{ logout_length }"
+    login_length = find("#login_link").length
+    ok login_length >= 1, "Login link not found"

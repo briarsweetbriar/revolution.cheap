@@ -1,3 +1,6 @@
 if currentUserHasRole
-  .edit-button Edit
+  link-to 'projects.show.edit' classNames="edit-button"
+    | Edit
 h2 = title
+
+= outlet
