@@ -1,5 +1,5 @@
 label Image
-.file-upload.btn
+.file-upload
   .progress-bar
   Em.TextField value=recordType type="hidden"
   input#file_upload type="file"

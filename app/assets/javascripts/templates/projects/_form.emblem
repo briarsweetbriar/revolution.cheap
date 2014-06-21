@@ -16,12 +16,13 @@ form-for model
       error-block errors=errors.description
 
     each projectRoles
-      div class=this._destroy:hidden:shown
+      div class=this._destroy:d-n
         hr.rule
-        a click="removeUser this" X
+        a.form-fields__remove click="removeUser this" X
         = render "projects/roles/fields" this
 
-    button.btn click="addUser" Add User
+    li.form-fields__btn
+      button.btn click="addUser" Add User
 
-    li.form-fields__button
-      submit id="submit_button"
+    li.form-fields__btn.m-t-big
+      submit id="submit_button" classNames="btn"

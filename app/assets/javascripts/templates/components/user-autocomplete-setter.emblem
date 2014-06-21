@@ -1,7 +1,9 @@
 span
-  Ember.TextField valueBinding="searchInput" id="user" autocomplete="off"
+  label User
+span
+  Ember.TextField valueBinding="searchInput" autocomplete="off"
   if users
-    ul.autocomplete.input-width
+    ul.autocomplete.nude-list
       each user in users
-        li{action setUser user on="click" target='view'}
+        li.autocomplete__item{action setUser user on="click" target='view'}
           user.username

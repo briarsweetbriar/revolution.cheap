@@ -2,11 +2,11 @@ Revolution.UserAutocompleteSetterComponent = Em.Component.extend
 
   tagName: 'span'
   searchInput: null
+  usedObject: null
 
   setSearchInput: (->
-    user = @get 'targetObject.user'
-    if user?
-      user.get('username')
+    username = @get 'targetObject.content.user.username'
+    @set('searchInput', username)
   ).on('didInsertElement')
 
   users: (->

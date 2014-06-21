@@ -2,22 +2,28 @@
   @extend .nude-list
   label
     display: inline-block
-    width: 20vw
+    width: 38%
     text-align: right
     vertical-align: top
     padding-right: 2vw
-  input, textarea, .file-upload
+  input, textarea, .file-upload, .autocomplete
     @extend .p-s
     border: thin solid $main-border-color
     border-radius: 0
     background-color: $main-input-color
-  input, .file-upload
-    width: 41vw
+  input, .file-upload, .autocomplete
+    width: 62%
     height: $triple-rhythm
   textarea
     resize: none
     width: 100%
     height: 50vh
 
-.form-fields__item
+.form-fields__item, .form-fields__btn
   @extend .m-t
+
+.form-fields__remove
+  position: absolute
+  cursor: pointer
+  left: $rhythm
+  z-index: 90

@@ -2,7 +2,7 @@ Ember.TextField type="hidden" valueBinding="id"
 Ember.TextField type="hidden" valueBinding="_destroy"
 unless _destroy
   li.form-fields__item
-    user-autocomplete-setter
+    user-autocomplete-setter usedObject=this
     error-block errors=errors.user
   li.form-fields__item
     = input name
