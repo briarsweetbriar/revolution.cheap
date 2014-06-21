@@ -1,5 +1,9 @@
 ul.image-list class={ cinched:image-list--cinched }
+  if session.isAuthenticated
+    = link-to "projects.new" classNames="m-b image-list__link"
+      .image-list__title New Project
   each
-    image-list-item route="projects.show" item=this
+    if this.title
+      image-list-item route="projects.show" item=this
 
 == outlet
