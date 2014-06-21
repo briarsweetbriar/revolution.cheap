@@ -9,4 +9,4 @@
       
   = outlet
 
-  format-markdown description
+  markdown-format content=description
