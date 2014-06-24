@@ -9,7 +9,7 @@
 header#header.header.alt-font.m-b-large
   ul.nav
     li.nav__item
-      link-to 'home' classNames="nav__link"
+      link-to 'posts' classNames="nav__link"
         | Blog
     li.nav__item
       link-to 'projects' classNames="nav__link"

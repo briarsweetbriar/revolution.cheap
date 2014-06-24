@@ -1,0 +1,11 @@
+form-for model
+  ul.form-fields
+    li.form-fields__item
+      = input title
+      error-block errors=errors.title
+    li.form-fields__item
+      Revolution.MarkdownEditor value=body placeholder="Fill me with words"
+      error-block errors=errors.body
+
+    li.form-fields__btn.m-t-big
+      submit id="submit_button" classNames="btn"

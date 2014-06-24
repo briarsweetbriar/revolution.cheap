@@ -1,7 +1,10 @@
 # For more information see: http://emberjs.com/guides/routing/
 
 Revolution.Router.map ()->
-  @route 'home', path: '/'
+  @resource 'posts', path: '/', ->
+    @route 'new', path: '/posts/new'
+    @resource 'posts.show', path: '/posts/:post_id', ->
+      @route 'edit'
   @route 'login'
   @route 'about_us'
   @resource 'members', ->

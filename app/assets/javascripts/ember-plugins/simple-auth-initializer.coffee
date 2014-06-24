@@ -14,5 +14,5 @@ Ember.Application.initializer
 
     Ember.SimpleAuth.setup container, application,
       authorizerFactory: "ember-simple-auth-authorizer:devise"
-      routeAfterAuthentication: 'home'
-      routeAfterInvalidation: 'home'
+      routeAfterAuthentication: 'posts'
+      routeAfterInvalidation: 'posts'

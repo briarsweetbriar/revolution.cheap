@@ -13,7 +13,6 @@ Revolution.ApplicationAdapter = DS.ActiveModelAdapter.extend({
 
 
 Revolution.inject('component', 'store', 'store:main')
-Revolution.inject('view', 'store', 'store:main')
 
 Revolution.ProjectSerializer = DS.ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin,
   attrs:

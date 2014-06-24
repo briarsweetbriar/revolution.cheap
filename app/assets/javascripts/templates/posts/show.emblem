@@ -1,0 +1,14 @@
+.post
+  h1.headline-font.fs-huge.m-b = title
+  if user
+    .m-b-big
+      span.m-r by
+      link-to 'members.show' user
+        user.username
+  if currentUserIsOwner
+    link-to 'posts.show.edit' classNames="edit-button"
+      | Edit
+      
+  = outlet
+
+  format-markdown body

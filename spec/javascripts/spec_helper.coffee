@@ -47,6 +47,17 @@ Ember.SimpleAuth.ApplicationRouteMixin.reopen
 
 QUnit.testStart = ->
   logout()
+  posts = [
+    id: 1
+    title: "Post 1"
+    slug: "post_1"
+    user_id: 1
+  ,
+    id: 2
+    title: "Post 2"
+    slug: "post_2"
+    user_id: 2
+  ]
   projects = [
     id: 1
     title: "Project 1"
@@ -72,13 +83,71 @@ QUnit.testStart = ->
     username: "User 1"
     slug: "user_1"
     project_role_ids: [ 1 ]
+    post_ids: [ 1 ]
   ,
     id: 2
     username: "User 2"
     slug: "user_2"
     project_role_ids: [ 2 ]
+    post_ids: [ 2 ]
   ]
   server = new Pretender(->
+    @get "/posts", (request) ->
+      [ 200,
+        "Content-Type": "application/json"
+      , JSON.stringify(posts: posts) ]
+
+    @get "posts/:post_id", (request) ->
+      post = posts.find((post) ->
+        post  if post.slug is request.params.post_id
+      )
+      [ 200,
+        "Content-Type": "application/json"
+      , JSON.stringify(post: post) ]
+
+    @post "/posts", (request) ->
+      if $.parseJSON(request.requestBody).post.title == "Valid Post"
+        [ 200,
+          "Content-Type": "application/json"
+        , JSON.stringify(post: { "id": 3, "title": "Valid Post", "slug": "valid_post" } ) ]
+      else
+        [ 422,
+          "Content-Type": "application/json"
+        , JSON.stringify({ "errors": { "title": "is invalid" } }) ]
+
+    @put "/posts", (request) ->
+      [ 200,
+        "Content-Type": "application/json"
+      , JSON.stringify(post: { "id": 1, "title": "Valid Post", "slug": "valid_post" } ) ]
+
+    @get "/projects", (request) ->
+      [ 200,
+        "Content-Type": "application/json"
+      , JSON.stringify(projects: projects) ]
+
+    @get "projects/:project_id", (request) ->
+      project = projects.find((project) ->
+        project  if project.slug is request.params.project_id
+      )
+      [ 200,
+        "Content-Type": "application/json"
+      , JSON.stringify(project: project) ]
+
+    @post "/projects", (request) ->
+      if $.parseJSON(request.requestBody).project.title == "Valid Project"
+        [ 200,
+          "Content-Type": "application/json"
+        , JSON.stringify(project: { "id": 3, "title": "Valid Project", "slug": "valid_project" } ) ]
+      else
+        [ 422,
+          "Content-Type": "application/json"
+        , JSON.stringify({ "errors": { "title": "is invalid" } }) ]
+
+    @put "/projects", (request) ->
+      [ 200,
+        "Content-Type": "application/json"
+      , JSON.stringify(project: { "id": 1, "title": "Valid Project", "slug": "valid_project" } ) ]
+
     @get "/projects", (request) ->
       [ 200,
         "Content-Type": "application/json"

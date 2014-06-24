@@ -5,3 +5,8 @@ this.routesTo = (url, route_name) ->
       currentRouteName
     equal current_route, route_name, "Expected " + route_name + ", got: " +
       current_route
+
+this.routesToWithLogin = (url, route_name) ->
+  login()
+  andThen ->
+    routesTo(url, route_name)

@@ -1,26 +1,42 @@
 .project
-  h1.headline-font = title
-  div
-    span Website:
-    a.m-l href=website target="_blank"
-      = website
-  div
-    span Source:
-    a.m-l href=source target="_blank"
-      = source
-  each projectRole in projectRoles
-    if projectRole.user
-      link-to 'members.show' projectRole.user
-        projectRole.name
-    else
-      projectRole.name
-    span.m-l = projectRole.title
-    a.m-l href=projectRole.website target="_blank"
-      | Website
-  if currentUserHasRole
-    link-to 'projects.show.edit' classNames="edit-button"
-      | Edit
+  h1.headline-font.fs-huge = title
+  .media
+    img.media__img.project__logo src=logoUrl
+    .media__bd
+      if projectRoles
+        div
+          h2.m-e.fs-big Team
+          .fs-small
+            each projectRole in projectRoles
+              .project__category
+                if projectRole.user
+                  link-to 'members.show' projectRole.user
+                    projectRole.name
+                else
+                  if projectRole.website
+                    a href=projectRole.website target="_blank"
+                      projectRole.name
+                  else
+                    projectRole.name
+                | :
+              .project__category-item.fs-small = projectRole.title
+      h2.m-b.fs-big Links
+      .fs-small
+        if website
+          div
+            span.project__category Website:
+            a.project__category-item href=website target="_blank"
+              = website
+        if source
+          div
+            span.project__category Source:
+            a.project__category-item href=source target="_blank"
+              = source
+      div.m-t-big
+        if currentUserHasRole
+          link-to 'projects.show.edit' classNames="edit-button"
+            | Edit
       
   = outlet
 
-  markdown-format content=description
+  format-markdown description

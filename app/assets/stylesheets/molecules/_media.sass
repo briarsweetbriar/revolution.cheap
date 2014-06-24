@@ -1,18 +1,18 @@
 .media
-  margin: 10px
+  @extend .m
   overflow: hidden
   _overflow: visible
   zoom: 1
 
 .media__img
-  float: left
-  margin-right: 10px
+  @extend .m-r-big
+  @extend .f-l
   img
     display: block
   
 .media__img--right
-  float: right
-  margin-left: 10px
+  @extend .m-l-big
+  @extend .f-r
   margin-right: 0
 
 .media__bd
