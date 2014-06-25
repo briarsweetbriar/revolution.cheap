@@ -109,7 +109,7 @@ QUnit.testStart = ->
       if $.parseJSON(request.requestBody).post.title == "Valid Post"
         [ 200,
           "Content-Type": "application/json"
-        , JSON.stringify(post: { "id": 3, "title": "Valid Post", "slug": "valid_post" } ) ]
+        , JSON.stringify(post: { "id": 3, "title": "Valid Post", "slug": "valid_post", "user_id": 1 } ) ]
       else
         [ 422,
           "Content-Type": "application/json"
@@ -118,7 +118,7 @@ QUnit.testStart = ->
     @put "/posts", (request) ->
       [ 200,
         "Content-Type": "application/json"
-      , JSON.stringify(post: { "id": 1, "title": "Valid Post", "slug": "valid_post" } ) ]
+      , JSON.stringify(post: { "id": 1, "title": "Valid Post", "slug": "valid_post", "user_id": 1 } ) ]
 
     @get "/projects", (request) ->
       [ 200,

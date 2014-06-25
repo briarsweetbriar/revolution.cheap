@@ -1,0 +1,30 @@
+.post-list
+  @extend .nude-list
+
+.post-list--cinched
+  height: 23vh
+  overflow: hidden
+  .post-list__item
+    display: inline-block
+    margin: 0 1vw 0 0
+    padding: .5vw
+    width: 14vw
+    .markdown-content
+      p:first-child:first-letter
+        @extend .fs-small
+  .post-list__title
+    @extend .fs-small
+    margin-bottom: 0
+  .post-list__body
+    @extend .fs-small
+
+.post-list__item
+  display: block
+  margin-bottom: 2vw
+
+.post-list__title
+  @extend .fs-large
+
+.post-list__link
+  text-decoration: none
+  color: $main-color

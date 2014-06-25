@@ -1,0 +1,10 @@
+section
+  .post-list__title.headline-font = link-to "posts.show" item classNames="post-list__link"
+    item.title
+  .post-list__body
+    if expanded
+      format-markdown item.body
+    else
+      format-markdown item.bodyReduced
+      a.d-b.link click=expand
+        | Read more. . . .

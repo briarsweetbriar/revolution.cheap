@@ -1,9 +1,9 @@
-ul.image-list class={ cinched:image-list--cinched }
+ul.post-list class={ cinched:post-list--cinched }
   if session.isAuthenticated
-    = link-to "posts.new" classNames="m-b image-list__link"
-      .image-list__title New Post
+    = link-to "posts.new" classNames="m-b post-list__link"
+      .ta-c New Post
   each
     if this.title
-      image-list-item route="posts.show" item=this
+      post-list-item item=this
 
 == outlet
