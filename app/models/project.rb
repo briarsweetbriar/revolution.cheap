@@ -17,8 +17,6 @@ class Project < ActiveRecord::Base
   validates :title, presence: true, length: { in: 3..120 }
   validates :website, allow_blank: true, uri: { format: VALID_URI_REGEX }
 
-  accepts_nested_attributes_for :project_roles, allow_destroy: true
-
   after_save :set_project_logo
 
   def users_include?(user_in_question)
@@ -30,8 +28,10 @@ class Project < ActiveRecord::Base
 
   private
   def set_project_logo
-    project_logo = ProjectLogo.find(project_logo_id)
-    project_logo.project = self
-    project_logo.save
+    if project_logo_id
+      project_logo = ProjectLogo.find(project_logo_id)
+      project_logo.project = self
+      project_logo.save
+    end
   end
 end

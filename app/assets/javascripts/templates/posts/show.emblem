@@ -1,5 +1,6 @@
 .post
-  h1.headline-font.fs-huge.m-b = title
+  .m-e.fs-small = createdAtMoment
+  h1.headline-font.fs-huge.m-e-none = title
   if user
     .m-b-big
       span.m-r by
@@ -12,3 +13,6 @@
   = outlet
 
   format-markdown body
+
+  each tag in tags
+    span.tag.m-r = tag.name

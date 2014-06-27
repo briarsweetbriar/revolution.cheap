@@ -7,11 +7,21 @@ body
   font-family: $body-font
   font-size: 2vw
 
-@mixin opacity($value)
-  -moz-opacity: $value/100!important
-  -khtml-opacity: $value/100!important
-  opacity: $value/100!important
-  filter: alpha(opacity = $value)!important
+h1, h2, h3, h4, h5, h6
+  font-family: $headline-font
+
+a:link
+  color: $main-link-color
+
+a:focus
+  @include opacity(50)
+  outline: none
+
+a:visited
+  color: $main-link-color-visited
+
+a:hover, .link:hover
+  @include opacity(50)
 
 *
   -moz-box-sizing: border-box

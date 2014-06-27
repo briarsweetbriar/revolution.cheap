@@ -1,9 +1,11 @@
 ul.post-list class={ cinched:post-list--cinched }
+  tag-list tags=tags targetController=this
   if session.isAuthenticated
     = link-to "posts.new" classNames="m-b post-list__link"
       .ta-c New Post
-  each
-    if this.title
-      post-list-item item=this
+  each post in controller
+    if post.hasActiveTag
+      if post.title
+        post-list-item item=post targetController=controller.parentController
 
 == outlet

@@ -59,4 +59,39 @@ describe Project do
     end
   end
 
+  context "manage tags" do
+    it "when a single tag is submitted with a new project" do
+      project = FactoryGirl.create(:project, tag_names: "tag1")
+      tag = Tag.find_by(name: "tag1")
+      expect(project.tags).to include(tag)
+    end
+
+    it "when multiple tags are submitted with a new project" do
+      project = FactoryGirl.create(:project, tag_names: "tag1, tag2")
+      tag1 = Tag.find_by(name: "tag1")
+      tag2 = Tag.find_by(name: "tag2")
+      expect(project.tags).to include(tag1, tag2)
+    end
+
+    it "when the tag is preexisting" do
+      tag = FactoryGirl.create(:tag, name: "tag1")
+      project = FactoryGirl.create(:project, tag_names: "tag1")
+      expect(project.tags).to include(tag)
+    end
+
+    it "when the project is updated" do
+      project = FactoryGirl.create(:project)
+      project.update_attributes(tag_names: "tag1")
+      tag = Tag.find_by(name: "tag1")
+      expect(project.tags).to include(tag)
+    end
+
+    it "when the project loses a tag" do
+      project = FactoryGirl.create(:project, tag_names: "tag1, tag2")
+      project.update_attributes(tag_names: "tag2")
+      tag1 = Tag.find_by(name: "tag1")
+      expect(project.tags).to_not include(tag1)
+    end
+  end
+
 end

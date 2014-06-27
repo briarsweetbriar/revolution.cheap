@@ -1,0 +1,13 @@
+.tag-list
+  @extend .nude-list
+  .tag-list__item.active, .tag-list__item:hover
+    background-color: $main-color
+    color: $main-background-color
+
+.tag-list__item
+  @extend .fs-small
+  @extend .m-r
+  display: inline-block
+  padding: $rhythm/1.5 $rhythm $rhythm/2
+  border: .1vw dashed $main-color
+  cursor: pointer

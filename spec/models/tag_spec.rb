@@ -36,26 +36,22 @@ describe Tag do
 
   context "counts" do
     before :each do
-      @tag = FactoryGirl.create(:tag)
+      @tag = FactoryGirl.create(:tag, name: "tag1")
     end
 
     it "posts" do
-      post_1 = FactoryGirl.create(:post)
-      post_2 = FactoryGirl.create(:post)
-      project_1 = FactoryGirl.create(:project)
-      @tag.taggings.create(taggable: post_1)
-      @tag.taggings.create(taggable: post_2)
-      @tag.taggings.create(taggable: project_1)
+      post_1 = FactoryGirl.create(:post, tag_names: "tag1")
+      post_2 = FactoryGirl.create(:post, tag_names: "tag1")
+      project_1 = FactoryGirl.create(:project, tag_names: "tag1")
+      @tag.reload
       expect(@tag.posts_count).to eq 2
     end
 
     it "projects" do
-      project_1 = FactoryGirl.create(:project)
-      project_2 = FactoryGirl.create(:project)
-      post_1 = FactoryGirl.create(:post)
-      @tag.taggings.create(taggable: project_1)
-      @tag.taggings.create(taggable: project_2)
-      @tag.taggings.create(taggable: post_1)
+      project_1 = FactoryGirl.create(:project, tag_names: "tag1")
+      project_2 = FactoryGirl.create(:project, tag_names: "tag1")
+      post_1 = FactoryGirl.create(:post, tag_names: "tag1")
+      @tag.reload
       expect(@tag.projects_count).to eq 2
     end
   end

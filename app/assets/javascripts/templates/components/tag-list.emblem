@@ -1,0 +1,4 @@
+if tags
+  .m-b-big
+    each tag in tags
+      tag-item tag=tag targetController=targetController

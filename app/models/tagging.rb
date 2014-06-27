@@ -14,9 +14,11 @@ class Tagging < ActiveRecord::Base
 
   def increment_tagging_count
     tag.increment(counter_type)
+    tag.save
   end
 
   def decrement_tagging_count
     tag.decrement(counter_type)
+    tag.save
   end
 end

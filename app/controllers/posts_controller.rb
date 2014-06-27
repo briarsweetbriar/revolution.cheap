@@ -51,8 +51,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :body,
-      taggings_attributes: [:tag_id]
-    ).merge(user: current_user)
+    params.require(:post).permit(:title, :body, :tag_names).
+      merge(user: current_user)
   end
 end

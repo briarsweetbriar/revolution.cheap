@@ -17,13 +17,19 @@
     margin-bottom: 0
   .post-list__body
     @extend .fs-small
+  .post-list__date
+    display: none
+  .post-list__user
+    display: none
 
 .post-list__item
+  @extend .m-t-big
+  @extend .m-b
+  border-bottom: .2vw dashed $main-color
   display: block
-  margin-bottom: 2vw
 
 .post-list__title
-  @extend .fs-large
+  @extend .fs-huge
 
 .post-list__link
   text-decoration: none

@@ -52,9 +52,8 @@ class ProjectsController < ApplicationController
   private
   def project_params
     params["project"]["project_roles_attributes"] = params["project"].delete "project_roles"
-    params.require(:project).permit(:title, :description, :website, :source, :project_logo_id,
-      project_roles_attributes: [:_destroy, :id, :title, :name, :website, :user_id],
-      taggings_attributes: [:tag_id]
+    params.require(:project).permit(:title, :description, :website, :source, :tag_names, :project_logo_id,
+      project_roles_attributes: [:_destroy, :id, :title, :name, :website, :user_id]
     )
   end
 end

@@ -3,6 +3,7 @@ Revolution.PostListItemComponent = Em.Component.extend(
   tagName: "li"
 
   item: null
+  targetController: null
 
   expanded: false
 

@@ -14,6 +14,9 @@ form-for model
     li.form-fields__item
       Revolution.MarkdownEditor value=description placeholder="Project description"
       error-block errors=errors.description
+    li.form-fields__item
+      = input tagNames
+      error-block errors=errors.tagNames
 
     each projectRoles
       div class=this._destroy:d-n

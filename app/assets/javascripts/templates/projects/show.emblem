@@ -5,7 +5,7 @@
     .media__bd
       if projectRoles
         div
-          h2.m-e.fs-big Team
+          h2.headline-font.m-e.fs-big Team
           .fs-small
             each projectRole in projectRoles
               .project__category
@@ -20,7 +20,7 @@
                     projectRole.name
                 | :
               .project__category-item.fs-small = projectRole.title
-      h2.m-b.fs-big Links
+      h2.headline-font.m-b.fs-big Links
       .fs-small
         if website
           div

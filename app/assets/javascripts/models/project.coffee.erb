@@ -1,4 +1,6 @@
 Revolution.Project = DS.Model.extend(
+  Revolution.TaggableMixin
+  
   createdAt: DS.attr("date")
   description: DS.attr("string")
   slug: DS.attr("string")

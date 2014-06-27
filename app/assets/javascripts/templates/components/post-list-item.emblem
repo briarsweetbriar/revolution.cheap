@@ -1,10 +1,20 @@
 section
+  .post-list__date
+    .m-b.fs-small = item.createdAtMoment
   .post-list__title.headline-font = link-to "posts.show" item classNames="post-list__link"
     item.title
+  if item.user
+    .post-list__user
+      .m-b-big
+        span.m-r by
+        link-to 'members.show' item.user
+          item.user.username
   .post-list__body
     if expanded
       format-markdown item.body
     else
       format-markdown item.bodyReduced
-      a.d-b.link click=expand
+      a.d-b.m-b-big.link click=expand
         | Read more. . . .
+
+  tag-list tags=item.tags targetController=targetController
