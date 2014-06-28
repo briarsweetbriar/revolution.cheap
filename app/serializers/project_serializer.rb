@@ -4,4 +4,5 @@ class ProjectSerializer < ActiveModel::Serializer
   has_one :project_logo, serializer: ProjectLogoSerializer
   has_one :slideshow, serializer: SlideshowSerializer
   has_many :project_roles, serializer: ProjectRoleSerializer
+  has_many :tags, serializer: TagSerializer
 end

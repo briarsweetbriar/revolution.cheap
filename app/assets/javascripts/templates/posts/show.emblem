@@ -14,5 +14,4 @@
 
   format-markdown body
 
-  each tag in tags
-    span.tag.m-r = tag.name
+  tag-list tags=tags targetController=controllers.posts

@@ -19,6 +19,8 @@ class Project < ActiveRecord::Base
 
   after_save :set_project_logo
 
+  accepts_nested_attributes_for :project_roles, allow_destroy: true
+
   def users_include?(user_in_question)
     users.each do |user|
       return true if user == user_in_question

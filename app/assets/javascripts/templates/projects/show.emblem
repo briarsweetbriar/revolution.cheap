@@ -40,3 +40,5 @@
   = outlet
 
   format-markdown description
+
+  tag-list tags=tags targetController=controllers.projects
