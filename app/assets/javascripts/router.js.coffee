@@ -6,6 +6,8 @@ Revolution.Router.map ()->
     @resource 'posts.show', path: '/posts/:post_id', ->
       @route 'edit'
   @route 'login'
+  @resource 'contact', ->
+    @route 'thanks'
   @route 'about_us'
   @resource 'members', ->
     @resource 'members.show', path: ':user_id', ->

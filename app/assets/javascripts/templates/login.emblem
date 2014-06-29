@@ -1,11 +1,16 @@
-h1 Login
+h1.headline-font.fs-huge Login
 
 form
-  label for="identification"
-    | Email:
-  Ember.TextField id="identification" valueBinding="identification" autocomplete="off"
+  ul.form-fields
+    li.form-fields__item
+      label for="identification"
+        | Email:
+      Ember.TextField id="identification" valueBinding="identification" autocomplete="off"
 
-  label for="password"
-    | Password:
-  Ember.TextField id="password" valueBinding="password" type="password" autocomplete="off"
-  button click="authenticate" id="login_button" Login
+    li.form-fields__item
+      label for="password"
+        | Password:
+      Ember.TextField id="password" valueBinding="password" type="password" autocomplete="off"
+
+    li.form-fields__btn
+      button.btn click="authenticate" id="login_button" Login

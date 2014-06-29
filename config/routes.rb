@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :messages, only: :create, constraints: FormatTest.new(:json)
   resources :posts, except: :edit, constraints: FormatTest.new(:json)
   resources :projects, except: :edit, constraints: FormatTest.new(:json)
   resources :project_roles, only: [:index, :show],
