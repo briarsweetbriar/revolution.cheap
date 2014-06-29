@@ -1,12 +1,20 @@
 class QueryParams
 
-  attr_accessor :model, :params, :order, :limit, :offset
+  attr_accessor :model, :params, :order
   def initialize(model, params)
     @model = model
     @params = params
     @order = params[:order]
-    @limit = params[:limit]
-    @offset = params[:offset]
+    @limit = params[:limit] || params[:per_page]
+    @offset = params[:offset] || params[:page]
+  end
+
+  def limit
+    @limit.to_i unless @limit.nil?
+  end
+
+  def offset
+    @offset.to_i unless @offset.nil?
   end
 
   def build

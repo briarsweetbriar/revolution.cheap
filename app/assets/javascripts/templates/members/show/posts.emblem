@@ -1,0 +1,7 @@
+div
+  tag-list tags=tags targetController=this
+ul.post-list
+  each post in controller
+    if post.hasActiveTag
+      if post.title
+        post-list-item item=post targetController=controller.parentController

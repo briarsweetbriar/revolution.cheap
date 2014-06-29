@@ -1,7 +1,11 @@
-h1 About Us
+.markdown-content
+  p We enjoy designing and developing web applications, especially when the project lets us contribute something new to the open-source community. Our design philosophy places as much emphasis on coding a dynamic, seamless user experience as on building fast and reliable server-side logic. Let us know if there's something we can do to help with your product.
+
+h2.headline-font.fs-large Our Members:
+
 ul.members-list
   each
-    li = link-to 'members.show' this
-      = username
+    if this.username
+      member-list-item item=this
 
 == outlet

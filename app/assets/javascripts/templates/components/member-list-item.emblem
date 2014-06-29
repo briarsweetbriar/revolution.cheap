@@ -1,0 +1,19 @@
+.project
+  .media
+    img.media__img.project__logo src=item.avatarUrl
+    .media__bd
+      h1.headline-font.fs-big = link-to 'members.show' item
+        = item.username
+      .fs-small
+        if item.website
+          div
+            span.project__category Website:
+            a.project__category-item href=item.website target="_blank"
+              = item.website
+        if item.github
+          div
+            span.project__category Source:
+            a.project__category-item href=item.github target="_blank"
+              = item.github
+        if item.bio
+          format-markdown item.bio

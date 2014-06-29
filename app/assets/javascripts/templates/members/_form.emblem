@@ -2,5 +2,18 @@ form-for model
   ul.form-fields
     li.form-fields__item
       = input username
-    li.form-fields__button
-      submit
+      error-block errors=errors.username
+    li.form-fields__item
+      = input website
+      error-block errors=errors.website
+    li.form-fields__item
+      = input github
+      error-block errors=errors.github
+    li.form-fields__item
+      Revolution.FileFieldView parentObject=this recordType="userAvatar"
+    li.form-fields__item
+      Revolution.MarkdownEditor value=bio placeholder="Tell me about yourself"
+      error-block errors=errors.bio
+
+    li.form-fields__btn.m-t-big
+      submit id="submit_button" classNames="btn"

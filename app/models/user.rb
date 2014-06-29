@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  attr_accessor :user_avatar_id
   include ValidatorRegex
 
   extend FriendlyId
@@ -19,6 +20,7 @@ class User < ActiveRecord::Base
   validates :website, allow_blank: true, uri: { format: VALID_URI_REGEX }
 
   before_save :ensure_authentication_token
+  after_save :set_user_avatar
 
   def ensure_authentication_token
     if authentication_token.blank?
@@ -31,6 +33,15 @@ class User < ActiveRecord::Base
     loop do
       token = Devise.friendly_token
       break token unless User.where(authentication_token: token).first
+    end
+  end
+
+  private
+  def set_user_avatar
+    if user_avatar_id
+      user_avatar = UserAvatar.find(user_avatar_id)
+      user_avatar.user = self
+      user_avatar.save
     end
   end
 end

@@ -1,1 +1,6 @@
-h2 = username
+member-list-item item=this
+if currentUserIsMember
+  link-to 'members.show.edit' classNames="edit-button"
+    | Edit
+
+== outlet

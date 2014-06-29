@@ -1,0 +1,19 @@
+Revolution.User = DS.Model.extend(
+  bio: DS.attr("string")
+  github: DS.attr("string")
+  slug: DS.attr("string")
+  username: DS.attr("string")
+  website: DS.attr("string")
+
+  posts: DS.hasMany 'post',
+    async: true
+  projectRoles: DS.hasMany 'projectRole',
+    async: true
+  userAvatar: DS.belongsTo 'userAvatar',
+    async: true
+
+  avatarUrl: (->
+    avatarUrl = @get("userAvatar.file.file.url")
+    if avatarUrl? then avatarUrl else "<%= asset_path('logo-star--medium.png') %>"
+  ).property("userAvatar.file.file.url")
+)

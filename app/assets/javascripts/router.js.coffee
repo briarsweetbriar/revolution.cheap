@@ -10,6 +10,8 @@ Revolution.Router.map ()->
   @resource 'members', ->
     @resource 'members.show', path: ':user_id', ->
       @route 'edit'
+      @route 'posts'
+      @route 'projects'
   @resource 'projects', ->
     @route 'new'
     @resource 'projects.show', path: ':project_id', ->
