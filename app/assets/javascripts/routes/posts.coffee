@@ -6,5 +6,6 @@ Revolution.PostsRoute = Ember.Route.extend(
     @store.findAll("tag").then (tags) =>
       filteredTags = tags.filter (tag) ->
         tag.get('postsCount') > 0
+      filteredTags = filteredTags.sortBy('postsCount').reverse()
       controller.set('tags', filteredTags )
 )

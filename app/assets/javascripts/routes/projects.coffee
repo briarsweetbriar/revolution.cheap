@@ -6,5 +6,6 @@ Revolution.ProjectsRoute = Ember.Route.extend(
     @store.findAll("tag").then (tags) =>
       filteredTags = tags.filter (tag) ->
         tag.get('projectsCount') > 0
+      filteredTags = filteredTags.sortBy('projectsCount').reverse()
       controller.set('tags', filteredTags )
 )

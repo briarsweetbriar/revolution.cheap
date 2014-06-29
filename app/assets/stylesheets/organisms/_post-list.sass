@@ -6,21 +6,21 @@
   overflow: hidden
   .post-list__item
     display: inline-block
+    vertical-align: top
     margin: 0 1vw 0 0
     padding: .5vw
     width: 14vw
-    .markdown-content
-      p:first-child:first-letter
-        @extend .fs-small
+    border: 0
   .post-list__title
     @extend .fs-small
     margin-bottom: 0
-  .post-list__body
-    @extend .fs-small
-  .post-list__date
+  .post-list__body, .post-list__date, .post-list__user
     display: none
-  .post-list__user
-    display: none
+  .tag-list__item
+    @extend .fs-tiny
+    @extend .m-none
+    padding: $rhythm/3 $rhythm/2 $rhythm/4
+    border: 0
 
 .post-list__item
   @extend .m-t-big
