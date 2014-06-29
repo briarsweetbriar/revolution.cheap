@@ -1,5 +1,9 @@
 Revolution.TaggableControllerMixin = Ember.Mixin.create(
 
+  init: ->
+    @activeTagsChanged()
+    @._super()
+
   hasActiveTag: true
 
   activeTagsChanged: (->
