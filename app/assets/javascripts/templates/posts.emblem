@@ -1,8 +1,9 @@
-tag-list tags=tags targetController=this
-ul.post-list class={ cinched:post-list--cinched }
+div class={ cinched:tag-list--cinched }
+  tag-list tags=tags targetController=this
   if session.isAuthenticated
-    = link-to "posts.new" classNames="m-b post-list__link"
-      .ta-c New Post
+    = link-to "posts.new" classNames="td-n"
+      .m-b-large New Post
+ul.post-list class={ cinched:post-list--cinched }
   each post in controller
     if post.hasActiveTag
       if post.title

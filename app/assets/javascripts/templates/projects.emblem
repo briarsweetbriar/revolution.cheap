@@ -1,8 +1,9 @@
-tag-list tags=tags targetController=this
-ul.image-list class={ cinched:image-list--cinched }
+div class={ cinched:tag-list--cinched }
+  tag-list tags=tags targetController=this
   if session.isAuthenticated
-    = link-to "projects.new" classNames="m-b image-list__link"
+    = link-to "projects.new" classNames="td-n"
       .image-list__title New Project
+ul.image-list class={ cinched:image-list--cinched }
   each
     if this.hasActiveTag
       if this.title
