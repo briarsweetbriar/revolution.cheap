@@ -1,5 +1,6 @@
 .form-fields
   @extend .nude-list
+  margin-bottom: $rhythm*2
   label
     display: inline-block
     width: 38%
@@ -18,6 +19,7 @@
     resize: none
     width: 100%
     height: 50vh
+    @extend .p-e
 
 .form-fields__item, .form-fields__btn
   @extend .m-t
@@ -27,3 +29,12 @@
   cursor: pointer
   left: $rhythm
   z-index: 90
+
+.error-block
+  @extend .nude-list
+  margin-left: 38%
+  background: $main-color
+  color: $main-background-color
+
+.error-block__item
+  padding: $rhythm/2 $rhythm
