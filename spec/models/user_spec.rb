@@ -49,4 +49,29 @@ describe User do
       expect(@user).to validate_uniqueness_of(:username).case_insensitive
     end
   end
+
+  context "counts" do
+    before :each do
+      @user = FactoryGirl.create(:user)
+    end
+
+    it "posts" do
+      post_1 = FactoryGirl.create(:post, user: @user)
+      post_2 = FactoryGirl.create(:post, user: @user)
+      project_1 = FactoryGirl.create(:project)
+      FactoryGirl.create(:project_role, user: @user, project: project_1)
+      @user.reload
+      expect(@user.posts_count).to eq 2
+    end
+
+    it "projects" do
+      project_1 = FactoryGirl.create(:project)
+      project_2 = FactoryGirl.create(:project)
+      FactoryGirl.create(:project_role, user: @user, project: project_1)
+      FactoryGirl.create(:project_role, user: @user, project: project_2)
+      post_1 = FactoryGirl.create(:post, user: @user)
+      @user.reload
+      expect(@user.projects_count).to eq 2
+    end
+  end
 end

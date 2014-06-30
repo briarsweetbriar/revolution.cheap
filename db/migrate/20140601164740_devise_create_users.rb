@@ -4,8 +4,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string  :username
       t.string  :slug
       t.text    :bio
-      t.text    :github
-      t.text    :website
+      t.string  :github
+      t.string  :website
+      t.integer :posts_count, null: false, default: 0
+      t.integer :projects_count, null: false, default: 0
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""

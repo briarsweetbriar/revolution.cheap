@@ -138,8 +138,10 @@ ActiveRecord::Schema.define(version: 20140629224303) do
     t.string   "username"
     t.string   "slug"
     t.text     "bio"
-    t.text     "github"
-    t.text     "website"
+    t.string   "github"
+    t.string   "website"
+    t.integer  "posts_count",          default: 0,  null: false
+    t.integer  "projects_count",       default: 0,  null: false
     t.string   "email",                default: "", null: false
     t.string   "encrypted_password",   default: "", null: false
     t.string   "authentication_token"

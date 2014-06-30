@@ -7,9 +7,9 @@ ul.nav.m-b-huge
         | Edit
   li.nav__item
     link-to 'members.show.posts' classNames="nav__link"
-      | Posts
+      | Posts (#{ postsCount })
   li.nav__item
     link-to 'members.show.projects' classNames="nav__link"
-      | Projects
+      | Projects (#{ projectsCount })
 
 == outlet
