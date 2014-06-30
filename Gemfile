@@ -45,7 +45,7 @@ gem "ember-rails"
 gem "ember-source"
 gem "emblem-rails"
 gem "handlebars-source"
-gem 'ember_simple_auth-rails'
+gem 'ember_simple_auth-rails', '~> 0.5.2'
 
 group :development do
   gem 'better_errors'

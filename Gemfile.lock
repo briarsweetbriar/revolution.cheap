@@ -128,7 +128,7 @@ GEM
       railties (>= 3.1)
     ember-source (1.5.1.1)
       handlebars-source (~> 1.0)
-    ember_simple_auth-rails (0.6.2)
+    ember_simple_auth-rails (0.5.3)
       railties (> 3.1)
     emblem-rails (0.2.1)
       barber-emblem (~> 0.1.1)
@@ -359,7 +359,7 @@ DEPENDENCIES
   devise
   ember-rails
   ember-source
-  ember_simple_auth-rails
+  ember_simple_auth-rails (~> 0.5.2)
   emblem-rails
   exception_notification
   factory_girl_rails
