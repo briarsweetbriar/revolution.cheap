@@ -3,5 +3,5 @@ div
 ul.post-list
   each post in controller
     if post.hasActiveTag
-      if post.title
+      if post.isByMember
         post-list-item item=post targetController=controller.parentController

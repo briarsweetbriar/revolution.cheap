@@ -1,6 +1,15 @@
 member-list-item item=this
-if currentUserIsMember
-  link-to 'members.show.edit' classNames="edit-button"
-    | Edit
+
+ul.nav.m-b-huge
+  li.nav__item
+    if currentUserIsMember
+      link-to 'members.show.edit' classNames="nav__link"
+        | Edit
+  li.nav__item
+    link-to 'members.show.posts' classNames="nav__link"
+      | Posts
+  li.nav__item
+    link-to 'members.show.projects' classNames="nav__link"
+      | Projects
 
 == outlet

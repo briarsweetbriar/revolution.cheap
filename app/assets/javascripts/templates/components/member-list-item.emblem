@@ -1,8 +1,9 @@
 .project
   .media
-    img.media__img.project__logo src=item.avatarUrl
+    link-to 'members.show' item
+      img.media__img.project__logo src=item.avatarUrl
     .media__bd
-      h1.headline-font.fs-big = link-to 'members.show' item
+      h1.headline-font.fs-big = link-to 'members.show' item classNames="td-n"
         = item.username
       .fs-small
         if item.website
@@ -12,7 +13,7 @@
               = item.website
         if item.github
           div
-            span.project__category Source:
+            span.project__category Github:
             a.project__category-item href=item.github target="_blank"
               = item.github
         if item.bio

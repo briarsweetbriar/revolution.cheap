@@ -1,0 +1,8 @@
+tag-list tags=tags targetController=this
+ul.image-list
+  each
+    if this.hasActiveTag
+      if this.isByMember
+        image-list-item route="projects.show" item=this
+
+== outlet
