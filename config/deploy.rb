@@ -5,7 +5,7 @@ set :application, 'revolution'
 set :deploy_user, 'deploy'
  
 set :scm, :git
-set :repo_url, 'https://github.com/timothycommoner/revolution.git'
+set :repo_url, 'https://github.com/timothycommoner/revolution.cheap.git'
  
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
