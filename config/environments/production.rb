@@ -30,7 +30,7 @@ Rails.application.configure do
   config.assets.compile = false
 
   # Precompile additional assets
-  config.assets.precompile += %w( .otf .ttf )
+  config.assets.precompile += %w( *.otf *.ttf )
 
   # Generate digests for assets URLs.
   config.assets.digest = true
