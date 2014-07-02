@@ -1,7 +1,12 @@
 .btn
+  display: block
   width: 100% !important
-  height: $triple-rhythm
+  height: $quadrupole-rhythm !important
   border: thin solid $main-border-color
   border-radius: 0
   background: $main-input-color
   cursor: pointer
+
+@media (max-width: $response-point)
+  .btn
+    height: $quadrupole-rhythm * 2 !important

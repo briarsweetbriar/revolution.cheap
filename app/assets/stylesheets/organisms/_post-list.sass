@@ -3,17 +3,17 @@
 
 .post-list--cinched
   @include opacity(65)
-  height: 7vw
-  margin: $rhythm*2 0 $rhythm*4
+  height: $quadrupole-rhythm*2
+  margin: $double-rhythm 0 $quadrupole-rhythm
   overflow: hidden
-  border: .2vw dashed $main-color
+  border: $rhythm/5 dashed $main-color
   .post-list__item
+    @extend .p
     display: inline-block
     vertical-align: top
     text-align: center
-    margin: 0 1vw 0 0 !important
-    padding: 1vw
-    width: 14vw
+    margin: 0 $rhythm 0 0 !important
+    width: $double-rhythm * 7
     border: 0
   .post-list__title
     @extend .fs-small
@@ -23,13 +23,23 @@
   .tag-list__item
     @extend .fs-tiny
     @extend .m-none
-    padding: $rhythm/3 $rhythm/2 $rhythm/4
+    padding: $rhythm/3 $half-rhythm $rhythm/4
     border: 0
+
+@media (max-width: $response-point)
+  .post-list--cinched
+    height: $quadrupole-rhythm*4
+    margin: $quadrupole-rhythm 0 $quadrupole-rhythm*2
+    .post-list__item
+      margin: 0 $double-rhythm 0 0 !important
+      width: $double-rhythm * 14
+    .tag-list__item
+      padding: $rhythm/1.5 $rhythm $half-rhythm
 
 .post-list__item
   @extend .m-t-big
   @extend .m-b
-  border-bottom: .2vw dashed $main-color
+  border-bottom: $rhythm/5 dashed $main-color
   display: block
 
 .post-list__title

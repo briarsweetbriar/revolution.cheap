@@ -2,15 +2,7 @@
   position: relative
   overflow: hidden
   display: inline-block
-  input
-    position: absolute
-    top: 0
-    right: 0
-    margin: 0
-    padding: 0
-    cursor: pointer
-    opacity: 0
-    filter: alpha(opacity = 0)
+  vertical-align: middle
   .progress-bar
     height: 100%
     width: 0
@@ -18,3 +10,13 @@
     position: absolute
     top: 0
     left: 0
+
+.file-upload__input
+  @include opacity(0)
+  position: absolute
+  top: 0
+  right: 0
+  width: 100% !important
+  padding: 0 !important
+  margin: 0 !important
+  cursor: pointer

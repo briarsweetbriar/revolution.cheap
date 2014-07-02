@@ -9,22 +9,41 @@
   font-family: $logo-font
 
 .fs-tiny
-  font-size: 1vw
+  font-size: $rhythm
 
 .fs-small
-  font-size: 1.5vw
+  font-size: $rhythm + $half-rhythm
 
 .fs-normal
-  font-size: 2vw
+  font-size: $double-rhythm
 
 .fs-big
-  font-size: 2.5vw
+  font-size: $double-rhythm + $half-rhythm
 
 .fs-large
-  font-size: 3vw
+  font-size: $triple-rhythm
 
 .fs-huge
-  font-size: 3.5vw
+  font-size: $triple-rhythm + $half-rhythm
+
+@media (max-width: $response-point)
+  .fs-tiny
+    font-size: $rhythm * 2
+
+  .fs-small
+    font-size: ($rhythm + $half-rhythm) * 2
+
+  .fs-normal
+    font-size: $double-rhythm * 2
+
+  .fs-big
+    font-size: ($double-rhythm + $half-rhythm) * 2
+
+  .fs-large
+    font-size: $triple-rhythm * 2
+
+  .fs-huge
+    font-size: ($triple-rhythm + $half-rhythm) * 2
 
 .link
   text-decoration: underline

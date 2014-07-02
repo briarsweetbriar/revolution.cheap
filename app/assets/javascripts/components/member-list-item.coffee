@@ -1,4 +1,4 @@
-Revolution.MemberItemComponent = Em.Component.extend(
+Revolution.MemberListItemComponent = Em.Component.extend(
   classNames: "member-list__item"
   tagName: "li"
 

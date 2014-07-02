@@ -12,5 +12,9 @@
   @extend .m-r
   display: inline-block
   padding: $rhythm/1.5 $rhythm $rhythm/2
-  border: .1vw dashed $main-color
+  border: $rhythm/10 dashed $main-color
   cursor: pointer
+
+@media (max-width: $response-point)
+  .tag-list__item
+    padding: $rhythm/.75 $double-rhythm $rhythm

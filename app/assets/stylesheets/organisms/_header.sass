@@ -1,8 +1,12 @@
 .header
   width: 100%
-  border-top: dashed .6vw $main-color
-  font-size: 3vw
+  border-top: dashed $half-rhythm $main-color
+  font-size: $triple-rhythm
   background-color: $main-background-color
+
+@media (max-width: $response-point)
+  .header
+    font-size: $triple-rhythm * 1.3
 
 .nav
   @extend .nude-list
@@ -21,11 +25,15 @@
 
 .nav__link
   width: 100%
-  padding: 1vw 3.75vw
+  padding: $rhythm $quadrupole-rhythm
   display: inline-block
   text-decoration: none
   color: $main-color
   cursor: pointer
 
+@media (max-width: $response-point)
+  .nav__link
+    padding: $rhythm $double-rhythm
+
 .nav__link--logout
-  padding: 1vw
+  padding: $rhythm

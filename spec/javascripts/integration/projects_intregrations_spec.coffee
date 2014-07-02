@@ -91,6 +91,6 @@ test "Adding a new project with invalid attributes", ->
     fillIn "input[name='title']", "Invalid Project"
     click "#submit_button"
     andThen ->
-      error_text = find(".error-block p").text()
+      error_text = find(".error-block li").text()
       expected_result = "is invalid"
       equal error_text, expected_result, "Expected: #{ expected_result }, got: #{ error_text }"

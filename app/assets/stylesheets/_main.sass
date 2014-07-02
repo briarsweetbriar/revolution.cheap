@@ -5,7 +5,11 @@ body
   background-color: $main-background-color
   color: $main-color
   font-family: $body-font
-  font-size: 2vw
+  font-size: $double-rhythm
+
+@media (max-width: $response-point)
+  body
+    font-size: $quadrupole-rhythm
 
 h1, h2, h3, h4, h5, h6
   font-family: $headline-font

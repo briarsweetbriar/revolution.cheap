@@ -2,4 +2,4 @@ label Image
 .file-upload
   .progress-bar
   Em.TextField value=recordType type="hidden"
-  input#file_upload type="file"
+  input#file_upload.file-upload__input type="file"

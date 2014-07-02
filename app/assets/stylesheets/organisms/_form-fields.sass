@@ -1,12 +1,12 @@
 .form-fields
   @extend .nude-list
-  margin-bottom: $rhythm*2
+  @extend .m-b-big
   label
+    @extend .p-r-big
     display: inline-block
     width: 38%
     text-align: right
-    vertical-align: top
-    padding-right: 2vw
+    vertical-align: middle
   input, textarea, .file-upload, .autocomplete
     @extend .p-s
     border: thin solid $main-border-color
@@ -14,20 +14,26 @@
     background-color: $main-input-color
   input, .file-upload, .autocomplete
     width: 62%
-    height: 2.5vw
+    height: $quadrupole-rhythm
   textarea
+    @extend .p-e
     resize: none
     width: 100%
     height: 50vh
-    @extend .p-e
+
+@media (max-width: $response-point)
+  .form-fields
+    input, .file-upload, .autocomplete
+      height: $quadrupole-rhythm * 2
 
 .form-fields__item, .form-fields__btn
   @extend .m-t
 
 .form-fields__remove
+  @extend .m-l
   position: absolute
+  left: 0
   cursor: pointer
-  left: $rhythm
   z-index: 90
 
 .error-block
@@ -38,3 +44,7 @@
 
 .error-block__item
   padding: $rhythm/2 $rhythm
+
+@media (max-width: $response-point)
+  .error-block__item
+    padding: $rhythm $double-rhythm

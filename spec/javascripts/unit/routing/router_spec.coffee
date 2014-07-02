@@ -35,3 +35,15 @@ test "member route", ->
 
 test "edit member route", ->
   routesToWithLogin('/members/user_1/edit', 'members.show.edit')
+
+test "member posts route", ->
+  routesTo('/members/user_1/posts', 'members.show.posts')
+
+test "member projects route", ->
+  routesTo('/members/user_1/projects', 'members.show.projects')
+
+test "contact route", ->
+  routesTo('/contact', 'contact.index')
+
+test "contact thanks route", ->
+  routesTo('/contact/thanks', 'contact.thanks')

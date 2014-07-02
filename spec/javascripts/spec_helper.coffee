@@ -52,11 +52,13 @@ QUnit.testStart = ->
     title: "Post 1"
     slug: "post_1"
     user_id: 1
+    tag_ids: [ 1 ]
   ,
     id: 2
     title: "Post 2"
     slug: "post_2"
     user_id: 2
+    tag_ids: [ 3 ]
   ]
   projects = [
     id: 1
@@ -73,10 +75,32 @@ QUnit.testStart = ->
     id: 1
     project_id: 1
     user_id: 1
+    tag_ids: [ 1 ]
   ,
     id: 2
     project_id: 2
     user_id: 2
+    tag_ids: [ 2 ]
+  ]
+  tags = [
+    id: 1
+    name: "Both"
+    project_ids: [ 1 ]
+    post_ids: [ 1 ]
+    projects_count: 1
+    posts_count: 1
+  ,
+    id: 2
+    name: "Project Only"
+    project_ids: [ 2 ]
+    projects_count: 1
+    posts_count: 0
+  ,
+    id: 3
+    name: "Post Only"
+    post_ids: [ 2 ]
+    projects_count: 0
+    posts_count: 1
   ]
   users = [
     id: 1
@@ -189,6 +213,19 @@ QUnit.testStart = ->
         "Content-Type": "application/json"
       , JSON.stringify(project_roles: projectRoles) ]
 
+    @get "tags/:id", (request) ->
+      tag = tags.find((tag) ->
+        tag  if tag.id is request.params.id
+      )
+      [ 200,
+        "Content-Type": "application/json"
+      , JSON.stringify(tag: tag) ]
+
+    @get "/tags", (request) ->
+      [ 200,
+        "Content-Type": "application/json"
+      , JSON.stringify(tags: tags) ]
+
     @post "/users/sign_in", (request) ->
       [ 200,
         "Content-Type": "application/json"
@@ -206,4 +243,14 @@ QUnit.testStart = ->
       [ 200,
         "Content-Type": "application/json"
       , JSON.stringify(users: users) ]
+
+    @post "/messages", (request) ->
+      if $.parseJSON(request.requestBody).message.name == "Valid Contact"
+        [ 200,
+          "Content-Type": "application/json"
+        , JSON.stringify(post: { "id": 3, "name": "Valid Contact" } ) ]
+      else
+        [ 422,
+          "Content-Type": "application/json"
+        , JSON.stringify({ "errors": { "name": "is invalid" } }) ]
   )

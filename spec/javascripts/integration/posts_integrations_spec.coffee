@@ -3,11 +3,19 @@ module "posts integration"
 test "posts index page", ->
   visit "/"
   andThen ->
-    posts_length = find(".post-list li").length
-    equal posts_length, 2, "Expected posts to contain 2 items, got: #{ posts_length }"
+    posts_length = find(".post-list li.post-list__item").length
+    expected_result = 2
+    equal posts_length, expected_result, "Expected posts to contain #{ expected_result } items, got: #{ posts_length }"
+
+test "posts index page shows tag posts", ->
+  visit "/"
+  andThen ->
+    tags_length = find(".tag-list:first li.tag-list__item").length
+    expected_result = 2
+    equal tags_length, expected_result, "Expected tags to contain #{ expected_result } items, got: #{ tags_length }"
 
 test "Visiting a post via the index screen", ->
-  visit("/").click "ul li:last a"
+  visit("/").click "ul.post-list li:first a.post-list__link"
   andThen ->
     post = find("h1").text()
     expected_result = "Post 2"
@@ -44,14 +52,16 @@ test "redirects if user does not have edit privileges", ->
     equal header_text, expected_result, "Expected: #{ expected_result }, got: #{ header_text }"
 
 test "click edit button to go to post edit page", ->
-  login()
+  logout()
   andThen ->
-    visit "/posts/post_1"
+    login()
     andThen ->
-      click ".edit-button"
+      visit "/posts/post_1/edit"
       andThen ->
-        input_fields = find(".form-fields li").length
-        ok input_fields >= 1, "Input field not found"
+        click ".edit-button"
+        andThen ->
+          input_fields = find(".form-fields li").length
+          ok input_fields >= 1, "Input field not found"
 
 test "saving edits persists the changes to the post then redirects to post page", ->
   login()
@@ -91,6 +101,6 @@ test "Adding a new post with invalid attributes", ->
     fillIn "input[name='title']", "Invalid Post"
     click "#submit_button"
     andThen ->
-      error_text = find(".error-block p").text()
+      error_text = find(".error-block li").text()
       expected_result = "is invalid"
       equal error_text, expected_result, "Expected: #{ expected_result }, got: #{ error_text }"

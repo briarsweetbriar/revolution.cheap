@@ -13,10 +13,10 @@
     font-size: 2.5vh
 
 .image-list__item
+  @extend .m-big
   display: inline-block
   vertical-align: top
   text-align: center
-  margin: 2vw
   .image-list__link:hover, .image-list__link:focus, .image-list__link.active
     outline: none
     @include opacity(100)
@@ -28,4 +28,4 @@
 
 .image-list__img
   max-width: 15vw
-  border-radius: 2vw
+  border-radius: $double-rhythm
