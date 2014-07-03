@@ -11,9 +11,9 @@ section
           item.user.username
   .post-list__body
     if expanded
-      format-markdown item.body
+      format-markdown content=item.body
     else
-      format-markdown item.bodyReduced
+      format-markdown content=item.bodyReduced
       a.d-b.m-b-big.link click=expand
         | Read more. . . .
 

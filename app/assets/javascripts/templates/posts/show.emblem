@@ -12,6 +12,6 @@
       
   = outlet
 
-  format-markdown body
+  format-markdown content=body
 
   tag-list tags=tags targetController=controllers.posts

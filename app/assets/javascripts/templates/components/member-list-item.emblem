@@ -17,4 +17,4 @@
             a.project__category-item href=item.github target="_blank"
               = item.github
         if item.bio
-          format-markdown item.bio
+          format-markdown content=item.bio

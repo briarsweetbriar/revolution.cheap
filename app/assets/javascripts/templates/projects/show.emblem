@@ -39,6 +39,6 @@
       
   = outlet
 
-  format-markdown description
+  format-markdown content=description
 
   tag-list tags=tags targetController=controllers.projects
