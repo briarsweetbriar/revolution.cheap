@@ -13,12 +13,16 @@ class ProjectRole < ActiveRecord::Base
 
   private
   def increment_user_projects_count
-    user.increment(:projects_count)
-    user.save
+    if user
+      user.increment(:projects_count)
+      user.save
+    end
   end
 
   def decrement_user_projects_count
-    user.decrement(:projects_count)
-    user.save
+    if user
+      user.decrement(:projects_count)
+      user.save
+    end
   end
 end
