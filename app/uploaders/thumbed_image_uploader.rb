@@ -10,8 +10,8 @@ class ThumbedImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  process :resize_and_pad => [600, 600]
-  
+  process :resize_and_pad => [400, 400]
+
   def extension_white_list
     %w(jpg jpeg gif png)
   end
