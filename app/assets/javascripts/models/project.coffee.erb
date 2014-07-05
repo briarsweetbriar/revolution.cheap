@@ -15,6 +15,6 @@ Revolution.Project = DS.Model.extend(
 
   logoUrl: (->
     logoUrl = @get("projectLogo.file.file.url")
-    if logoUrl? then logoUrl else "<%= asset_path('logo-star--medium.png') %>"
+    if logoUrl? then logoUrl else "<%= asset_path('default-logo.png') %>"
   ).property("projectLogo.file.file.url")
 )
