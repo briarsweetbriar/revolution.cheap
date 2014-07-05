@@ -18,13 +18,13 @@ gem "active_model_serializers", :git => 'git://github.com/timothycommoner/active
 
 gem "figaro"
 
-gem 'friendly_id', '~> 5.0.0'
+gem 'friendly_id'
 gem "strip_attributes"
 
 gem 'cancan'
 gem "devise"
 
-gem 'carrierwave'
+gem 'carrierwave', '~> 0.9.0'
 gem 'mini_magick'
 
 gem "redcarpet"
@@ -74,6 +74,6 @@ group :test do
 end
 
 group :production do
-  gem "exception_notification"
+  gem "exception_notification", '~> 4.0.1'
 end
 
