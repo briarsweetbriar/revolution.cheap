@@ -13,9 +13,7 @@ class Project < ActiveRecord::Base
 
   validates :description, presence: true
   validates :slug, uniqueness: { case_sensitive: false }
-  validates :source, allow_blank: true, uri: { format: VALID_URI_REGEX }
   validates :title, presence: true, length: { in: 3..120 }
-  validates :website, allow_blank: true, uri: { format: VALID_URI_REGEX }
 
   after_save :set_project_logo
 

@@ -6,7 +6,6 @@ class ProjectRole < ActiveRecord::Base
 
   validates :name, presence: true, length: { in: 3..30 }
   validates :title, presence: true, length: { in: 3..30 }
-  validates :website, allow_blank: true, uri: { format: VALID_URI_REGEX }
 
   after_create :increment_user_projects_count
   after_destroy :decrement_user_projects_count

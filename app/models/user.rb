@@ -13,11 +13,9 @@ class User < ActiveRecord::Base
   has_one :user_avatar, dependent: :destroy
 
   validates :bio, presence: true
-  validates :github, allow_blank: true, uri: { format: VALID_URI_REGEX }
   validates :slug, uniqueness: { case_sensitive: false }
   validates :username, presence: true, uniqueness: { case_sensitive: false },
     length: { in: 3..30 }
-  validates :website, allow_blank: true, uri: { format: VALID_URI_REGEX }
 
   before_save :ensure_authentication_token
   after_save :set_user_avatar
