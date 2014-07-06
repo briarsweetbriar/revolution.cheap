@@ -6,7 +6,7 @@ class QueryParams
     @params = params
     @order = params[:order]
     @limit = params[:limit] || params[:per_page]
-    @offset = params[:offset] || params[:page]
+    @offset = params[:offset] || (params[:page].to_i * params[:per_page].to_i)
   end
 
   def limit

@@ -1,13 +1,16 @@
 Revolution.InfiniteScrollViewMixin = Ember.Mixin.create(
   setupInfiniteScrollListener: ->
     $(window).on "scroll", $.proxy(@didScroll, this)
-    @didScroll(true)
+    @loadNextPage()
 
   teardownInfiniteScrollListener: ->
     $(window).off "scroll", $.proxy(@didScroll, this)
 
-  didScroll: (freshLoad) ->
-    @get("controller.target").send "loadNextPage"  if @isScrolledToBottom() || freshLoad == true
+  loadNextPage: ->
+    @get("controller.target").send "loadNextPage"
+
+  didScroll: ->
+    @loadNextPage()  if @isScrolledToBottom()
 
   isScrolledToBottom: ->
     distanceToViewportTop = ($(document).height() - $(window).height())

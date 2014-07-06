@@ -13,6 +13,7 @@ body
 
 h1, h2, h3, h4, h5, h6
   font-family: $headline-font
+  font-weight: normal
 
 a:link
   color: $main-link-color
@@ -26,6 +27,13 @@ a:visited
 
 a:hover, .link:hover
   @include opacity(50)
+
+code
+  font-size: 1.2vw
+
+@media (max-width: $response-point)
+  body
+    font-size: 2.7vw
 
 *
   -moz-box-sizing: border-box
