@@ -11,6 +11,7 @@ Revolution.PostListItemComponent = Em.Component.extend(
   autoExpand: (->
     if @get('item.body')? && @get('item.body').length < 500
       @set('expanded', true)
+    @userIsOwner()
   ).on('didInsertElement')
 
   userIsOwner: (->

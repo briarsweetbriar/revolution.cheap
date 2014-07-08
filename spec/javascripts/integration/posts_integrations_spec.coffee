@@ -1,13 +1,5 @@
 module "posts integration"
 
-test "renders edit button if currentUser is owner", ->
-  login()
-  andThen ->
-    visit "/posts/post_1"
-    andThen ->
-      edit_length = find(".edit-button").length
-      ok edit_length >= 1, "Edit button not found"
-
 test "posts index page", ->
   visit "/"
   andThen ->
@@ -36,13 +28,21 @@ test "renders post", ->
     expected_result = "Post 1"
     equal post, expected_result, "Expected: #{ expected_result }, got: #{ post }"
 
+test "renders edit button if currentUser is owner", ->
+  login()
+  andThen ->
+    visit "/posts/post_1"
+    andThen ->
+      edit_length = find(".edit-button").length
+      ok edit_length >= 1, "Edit button not found"
+
 test "does not render edit button if currentUser has not owner", ->
   login()
   andThen ->
     visit "/posts/post_2"
     andThen ->
       edit_length = find(".edit-button").length
-      ok edit_length is 0, "Edit button present"
+      ok edit_length <= 1, "Edit button present in the main view"
 
 test "redirects if user does not have edit privileges", ->
   visit "/posts/post_2/edit"
