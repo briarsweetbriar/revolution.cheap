@@ -3,7 +3,7 @@ Revolution.FormatMarkdownComponent = Em.Component.extend
   content: null
 
   formatedContent: (->
-    Revolution.markdown.makeHtml(@get('content'))
+    Revolution.markdown.makeHtml(@get('content')) if @get('content')
   ).property('content')
 
   highlight: (->

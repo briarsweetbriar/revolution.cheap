@@ -16,3 +16,5 @@ Ember.Application.initializer
       authorizerFactory: "ember-simple-auth-authorizer:devise"
       routeAfterAuthentication: 'posts'
       routeAfterInvalidation: 'posts'
+
+    container.injection("component", 'session', 'ember-simple-auth-session:main')

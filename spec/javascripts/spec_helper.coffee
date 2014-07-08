@@ -51,12 +51,14 @@ QUnit.testStart = ->
     id: 1
     title: "Post 1"
     slug: "post_1"
+    body: "post 1 body"
     user_id: 1
     tag_ids: [ 1 ]
   ,
     id: 2
     title: "Post 2"
     slug: "post_2"
+    body: "post 2 body"
     user_id: 2
     tag_ids: [ 3 ]
   ]

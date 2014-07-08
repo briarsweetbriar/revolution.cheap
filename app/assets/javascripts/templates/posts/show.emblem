@@ -1,17 +1,3 @@
-.post
-  .m-e.fs-small = createdAtMoment
-  h1.headline-font.fs-huge.m-e-none = title
-  if user
-    .m-b-big
-      span.m-r by
-      link-to 'members.show' user
-        user.username
-  if currentUserIsOwner
-    link-to 'posts.show.edit' classNames="edit-button"
-      | Edit
-      
-  = outlet
+== outlet
 
-  format-markdown content=body
-
-  tag-list tags=tags targetController=controllers.posts
+post-list-item item=this targetController=controllers.posts expanded=true

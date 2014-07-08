@@ -1,5 +1,13 @@
 module "posts integration"
 
+test "renders edit button if currentUser is owner", ->
+  login()
+  andThen ->
+    visit "/posts/post_1"
+    andThen ->
+      edit_length = find(".edit-button").length
+      ok edit_length >= 1, "Edit button not found"
+
 test "posts index page", ->
   visit "/"
   andThen ->
@@ -17,26 +25,18 @@ test "posts index page shows tag posts", ->
 test "Visiting a post via the index screen", ->
   visit("/").click "ul.post-list li:first a.post-list__link"
   andThen ->
-    post = find("h1").text()
+    post = find("h1:last").text()
     expected_result = "Post 2"
     equal post, expected_result, "Expected: #{ expected_result }, got: #{ post }"
 
 test "renders post", ->
   visit "/posts/post_1"
   andThen ->
-    post = find("h1").text()
+    post = find("h1:last").text()
     expected_result = "Post 1"
     equal post, expected_result, "Expected: #{ expected_result }, got: #{ post }"
 
-test "renders edit button if currentUser has a postRole", ->
-  login()
-  andThen ->
-    visit "/posts/post_1"
-    andThen ->
-      edit_length = find(".edit-button").length
-      ok edit_length >= 1, "Edit button not found"
-
-test "does not render edit button if currentUser has no postRole", ->
+test "does not render edit button if currentUser has not owner", ->
   login()
   andThen ->
     visit "/posts/post_2"
@@ -71,7 +71,7 @@ test "saving edits persists the changes to the post then redirects to post page"
       fillIn "input[name='title']", "Valid Post"
       click "#submit_button"
       andThen ->
-        header_text = find("h1").text()
+        header_text = find("h1:last").text()
         expected_result = "Valid Post"
         equal header_text, expected_result, "Expected: #{ expected_result }, got: #{ header_text }"
 
@@ -90,7 +90,7 @@ test "Adding a new post", ->
     fillIn "input[name='title']", "Valid Post"
     click "#submit_button"
     andThen ->
-      header_text = find("h1").text()
+      header_text = find("h1:last").text()
       expected_result = "Valid Post"
       equal header_text, expected_result, "Expected: #{ expected_result }, got: #{ header_text }"
 
