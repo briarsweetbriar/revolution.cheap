@@ -6,7 +6,6 @@ class UserAvatar < ActiveRecord::Base
   validates :file, presence: true
 
   def set_user(user)
-    self.user = user
-    save
+    update_attributes(user: user)
   end
 end

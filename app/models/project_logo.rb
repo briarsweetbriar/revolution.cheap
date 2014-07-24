@@ -6,7 +6,6 @@ class ProjectLogo < ActiveRecord::Base
   validates :file, presence: true
 
   def set_project(project)
-    self.project = project
-    save
+    update_attributes(project: project)
   end
 end
