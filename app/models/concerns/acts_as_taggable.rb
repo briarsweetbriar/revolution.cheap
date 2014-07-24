@@ -15,7 +15,7 @@ module ActsAsTaggable
   def set_tags
     if @tag_names
       self.tags = @tag_names.split(",").map do |name|
-        Tag.where(name: name.strip).first_or_create!
+        Tag.named(name.strip).first_or_create!
       end
     end
   end

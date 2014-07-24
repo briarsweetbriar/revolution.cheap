@@ -7,4 +7,6 @@ class Tag < ActiveRecord::Base
   has_many :projects, through: :taggings, source_type: "Project", source: :taggable
 
   validates :name, presence: true, length: { in: 3..30 }
+
+  scope :named, ->(name) { where(name: name) }
 end
