@@ -42,6 +42,12 @@ describe Project do
     end
   end
 
+  it "associates with a ProjectLogo if a project_logo_id is provided" do
+    project_logo = FactoryGirl.create(:project_logo)
+    project = FactoryGirl.create(:project, project_logo_id: project_logo.id)
+    expect(project.project_logo).to eq project_logo
+  end
+
   context "users_include" do
     before :each do
       @project = FactoryGirl.create(:project)

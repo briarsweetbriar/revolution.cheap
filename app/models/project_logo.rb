@@ -4,4 +4,9 @@ class ProjectLogo < ActiveRecord::Base
   belongs_to :project
 
   validates :file, presence: true
+
+  def set_project(project)
+    self.project = project
+    save
+  end
 end

@@ -36,10 +36,6 @@ class User < ActiveRecord::Base
 
   private
   def set_user_avatar
-    if user_avatar_id
-      user_avatar = UserAvatar.find(user_avatar_id)
-      user_avatar.user = self
-      user_avatar.save
-    end
+    UserAvatar.find_by_id(user_avatar_id).try(:set_user, self)
   end
 end

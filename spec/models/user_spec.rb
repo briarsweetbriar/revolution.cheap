@@ -50,6 +50,12 @@ describe User do
     end
   end
 
+  it "associates with a UserAvatar if a user_avatar_id is provided" do
+    user_avatar = FactoryGirl.create(:user_avatar)
+    user = FactoryGirl.create(:user, user_avatar_id: user_avatar.id)
+    expect(user.user_avatar).to eq user_avatar
+  end
+
   context "counts" do
     before :each do
       @user = FactoryGirl.create(:user)

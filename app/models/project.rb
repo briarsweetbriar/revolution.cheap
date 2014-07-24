@@ -26,10 +26,6 @@ class Project < ActiveRecord::Base
 
   private
   def set_project_logo
-    if project_logo_id
-      project_logo = ProjectLogo.find(project_logo_id)
-      project_logo.project = self
-      project_logo.save
-    end
+    ProjectLogo.find_by_id(project_logo_id).try(:set_project, self)
   end
 end
