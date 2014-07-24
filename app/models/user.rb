@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   attr_accessor :user_avatar_id
-  include ValidatorRegex
 
   extend FriendlyId
   friendly_id :username, use: :history

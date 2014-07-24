@@ -1,6 +1,4 @@
 class ProjectRole < ActiveRecord::Base
-  include ValidatorRegex
-  
   belongs_to :project
   belongs_to :user
 

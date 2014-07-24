@@ -1,7 +1,6 @@
 class Project < ActiveRecord::Base
   attr_accessor :project_logo_id
   include ActsAsTaggable
-  include ValidatorRegex
 
   extend FriendlyId
   friendly_id :title, use: :history
