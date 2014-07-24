@@ -8,7 +8,7 @@ describe ProjectsController do
       project_2 = FactoryGirl.create :project, title: "Project 2"
       project_3 = FactoryGirl.create :project, title: "Project 3"
       get :index
-      assigns(:projects).should eq([project_1, project_2, project_3])
+      expect(assigns(:projects)).to eq([project_1, project_2, project_3])
     end
   end
 
