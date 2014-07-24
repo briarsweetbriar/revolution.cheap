@@ -20,9 +20,7 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :project_roles, allow_destroy: true
 
   def users_include?(user_in_question)
-    users.each do |user|
-      return true if user == user_in_question
-    end
+    return true if users.where(id: user_in_question.id).exists?
     return false
   end
 

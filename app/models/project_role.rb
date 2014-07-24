@@ -7,21 +7,6 @@ class ProjectRole < ActiveRecord::Base
   validates :name, presence: true, length: { in: 3..30 }
   validates :title, presence: true, length: { in: 3..30 }
 
-  after_create :increment_user_projects_count
-  after_destroy :decrement_user_projects_count
-
-  private
-  def increment_user_projects_count
-    if user
-      user.increment(:projects_count)
-      user.save
-    end
-  end
-
-  def decrement_user_projects_count
-    if user
-      user.decrement(:projects_count)
-      user.save
-    end
-  end
+  after_create { user.increment!(:projects_count) if user }
+  after_destroy { user.decrement!(:projects_count) if user }
 end

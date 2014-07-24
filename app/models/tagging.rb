@@ -4,21 +4,11 @@ class Tagging < ActiveRecord::Base
 
   validates :tag, uniqueness: { scope: :taggable }
 
-  after_create :increment_tagging_count
-  after_destroy :decrement_tagging_count
+  after_create { tag.increment!(counter_type) }
+  after_destroy { tag.increment!(counter_type) }
 
   private
   def counter_type
     "#{ taggable_type.underscore.pluralize }_count".to_sym
-  end
-
-  def increment_tagging_count
-    tag.increment(counter_type)
-    tag.save
-  end
-
-  def decrement_tagging_count
-    tag.decrement(counter_type)
-    tag.save
   end
 end
