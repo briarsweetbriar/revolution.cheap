@@ -8,7 +8,7 @@ describe TagsController do
       tag_2 = FactoryGirl.create :tag, name: "Tag 2"
       tag_3 = FactoryGirl.create :tag, name: "Tag 3"
       get :index
-      assigns(:tags).should eq([tag_1, tag_2, tag_3])
+      expect(assigns(:tags)).to eq([tag_1, tag_2, tag_3])
     end
   end
 

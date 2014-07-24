@@ -8,7 +8,7 @@ describe PostsController do
       post_2 = FactoryGirl.create :post, title: "Post 2"
       post_3 = FactoryGirl.create :post, title: "Post 3"
       get :index
-      assigns(:posts).should eq([post_1, post_2, post_3])
+      expect(assigns(:posts)).to eq([post_1, post_2, post_3])
     end
   end
 

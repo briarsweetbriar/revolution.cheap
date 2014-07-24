@@ -8,7 +8,7 @@ describe UsersController do
       user_2 = FactoryGirl.create :user, username: "User 2"
       user_3 = FactoryGirl.create :user, username: "User 3"
       get :index
-      assigns(:users).should eq([user_1, user_2, user_3])
+      expect(assigns(:users)).to eq([user_1, user_2, user_3])
     end
   end
 

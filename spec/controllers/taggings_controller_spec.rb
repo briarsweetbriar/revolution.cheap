@@ -8,7 +8,7 @@ describe TaggingsController do
       tagging_2 = FactoryGirl.create :tagging
       tagging_3 = FactoryGirl.create :tagging
       get :index
-      assigns(:taggings).should eq([tagging_1, tagging_2, tagging_3])
+      expect(assigns(:taggings)).to eq([tagging_1, tagging_2, tagging_3])
     end
   end
 

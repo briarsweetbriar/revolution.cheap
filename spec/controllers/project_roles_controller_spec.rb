@@ -8,7 +8,7 @@ describe ProjectRolesController do
       project_role_2 = FactoryGirl.create :project_role
       project_role_3 = FactoryGirl.create :project_role
       get :index
-      assigns(:project_roles).should eq([project_role_1, project_role_2, project_role_3])
+      expect(assigns(:project_roles)).to eq([project_role_1, project_role_2, project_role_3])
     end
   end
 
