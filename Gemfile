@@ -53,7 +53,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'debugger'
+  gem 'byebug'
   gem 'factory_girl_rails'
   gem "guard-rspec"
   gem 'rspec-rails'
