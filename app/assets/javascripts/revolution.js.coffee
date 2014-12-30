@@ -14,3 +14,6 @@
 #= require_self
 
 Revolution.markdown = Markdown.getSanitizingConverter()
+
+Revolution.DisqusOptions = Em.Object.create
+  shortname: 'revolutioncheap'

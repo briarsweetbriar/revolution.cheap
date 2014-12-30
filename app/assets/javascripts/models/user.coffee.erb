@@ -16,6 +16,6 @@ Revolution.User = DS.Model.extend(
 
   avatarUrl: (->
     avatarUrl = @get("userAvatar.file.file.url")
-    if avatarUrl? then avatarUrl else "<%= asset_path('logo-star--medium.png') %>"
+    if avatarUrl? then avatarUrl else "<%= asset_path('default-logo.png') %>"
   ).property("userAvatar.file.file.url")
 )

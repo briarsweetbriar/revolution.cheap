@@ -6,6 +6,9 @@ class Ability
 
     can :authenticate, :all if !user.new_record?
 
+    # Comment
+    can :destroy, Comment if !user.new_record?
+
     # Post
     can :update, Post do |post|
       post.user.id == user.id

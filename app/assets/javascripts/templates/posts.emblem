@@ -5,8 +5,11 @@ div class={ cinched:tag-list--cinched }
       .m-b-large New Post
 ul.post-list class={ cinched:post-list--cinched }
   each post in controller
-    if post.hasActiveTag
-      if post.title
-        post-list-item item=post targetController=controller.parentController
+    li.post-list__item
+      if post.hasActiveTag
+        if post.title
+          post-list-item item=post targetController=controller.parentController
+          link-to "posts.show" post classNames="comment-link m-b-big" commentCount="true"
+            | Leave a Comment
 
 == outlet

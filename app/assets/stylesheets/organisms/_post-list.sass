@@ -1,6 +1,11 @@
 .post-list
   @extend .nude-list
 
+.comment-link
+  display: block
+  font-size: 1.5vw
+  text-align: right
+
 .post-list--cinched
   @include opacity(65)
   height: $quadrupole-rhythm*2
@@ -24,7 +29,7 @@
     @extend .m-none
     padding: $rhythm/3 $half-rhythm $rhythm/4
     border: 0
-  .edit-button
+  .edit-button, .comment-link
     display: none
 
 @media (max-width: $response-point)

@@ -1,3 +1,5 @@
 == outlet
 
 post-list-item item=this targetController=controllers.posts expanded=true
+
+disqus-comments item=this

@@ -1,4 +1,4 @@
 if tags
-  .m-b-big
+  .m-b
     each tag in tags
       tag-item tag=tag targetController=targetController
