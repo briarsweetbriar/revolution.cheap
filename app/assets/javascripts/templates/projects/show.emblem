@@ -11,13 +11,13 @@
               .project__category
                 if projectRole.user
                   link-to 'members.show' projectRole.user
-                    projectRole.name
+                    projectRole.displayName
                 else
                   if projectRole.website
                     a href=projectRole.website target="_blank"
-                      projectRole.name
+                      projectRole.displayName
                   else
-                    projectRole.name
+                    projectRole.displayName
                 | :
               .project__category-item.fs-small = projectRole.title
       h2.headline-font.m-b.fs-big Links
