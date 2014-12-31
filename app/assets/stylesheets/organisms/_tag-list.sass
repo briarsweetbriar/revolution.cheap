@@ -1,6 +1,6 @@
 .tag-list
   @extend .nude-list
-  .tag-list__item.active, .tag-list__item:hover
+  .tag-list__item.active
     background-color: $main-color
     color: $main-background-color
 
@@ -21,3 +21,10 @@
     padding: $rhythm/.75 $double-rhythm * 1.5 $rhythm
     margin-right: $triple-rhythm !important
     border-width: .6vw
+
+
+@media only screen and (min-device-width: $response-point)
+  .tag-list
+    .tag-list__item:hover
+      background-color: $main-color
+      color: $main-background-color
