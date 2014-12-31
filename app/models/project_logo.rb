@@ -6,6 +6,14 @@ class ProjectLogo < ActiveRecord::Base
   validates :file, presence: true
 
   def set_project(project)
+    remove_other_logos(project)
     update_attributes(project: project)
+  end
+
+  private
+  def remove_other_logos(project)
+    ProjectLogo.where(project: project).each do |logo|
+      logo.delete if avatar != self
+    end
   end
 end
