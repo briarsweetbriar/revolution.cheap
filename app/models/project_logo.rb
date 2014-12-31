@@ -13,7 +13,7 @@ class ProjectLogo < ActiveRecord::Base
   private
   def remove_other_logos(project)
     ProjectLogo.where(project: project).each do |logo|
-      logo.delete if avatar != self
+      logo.delete if logo != self
     end
   end
 end
