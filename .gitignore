@@ -14,3 +14,5 @@
 /config/application.yml
 /config/database.yml
 /uploads
+
+.fuse_hidden*
