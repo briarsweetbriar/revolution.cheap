@@ -1,8 +1,13 @@
 .header
+  @include transition(0s)
   width: 100%
   border-top: dashed $half-rhythm $main-color
   font-size: $triple-rhythm
   background-color: $main-background-color
+
+  &.scroll-to-fixed-fixed
+    border-top: 0
+    border-bottom: dashed $half-rhythm $main-color
 
 @media (max-width: $response-point)
   .header

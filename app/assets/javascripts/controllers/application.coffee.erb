@@ -1,15 +1,2 @@
 Revolution.ApplicationController = Ember.Controller.extend(
-  logoSrc: (->
-    width = window.innerWidth
-    if width < 100
-      "<%= asset_path('logo-star--micro.png') %>"
-    else if width < 500
-      "<%= asset_path('logo-star--small.png') %>"
-    else if width < 1400
-      "<%= asset_path('logo-star--medium.png') %>"
-    else if width < 3000
-      "<%= asset_path('logo-star--large.png') %>"
-    else
-      "<%= asset_path('logo-star--huge.png') %>"
-  ).property("window.innerWidth")
 )
