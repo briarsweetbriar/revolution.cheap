@@ -29,3 +29,11 @@
 .image-list__img
   width: 15vw
   border-radius: $double-rhythm
+
+@media only screen and (max-device-width: $response-point)
+  .image-list--cinched
+    height: 22vw
+    margin: $quadrupole-rhythm 0 $quadrupole-rhythm * 2
+    .image-list__item
+      margin: 0 $double-rhythm 0 0 !important
+      width: $double-rhythm * 14

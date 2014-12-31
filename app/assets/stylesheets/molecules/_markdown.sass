@@ -2,7 +2,7 @@
   p:nth-child(2):first-letter
     font-size: $double-rhythm + $half-rhythm
 
-@media (max-width: $response-point)
+@media only screen and (max-device-width: $response-point)
   .markdown-content
     p:nth-child(2):first-letter
-      font-size: ($double-rhythm + $half-rhythm) * 2
+      font-size: ($double-rhythm + $half-rhythm) * 2.75

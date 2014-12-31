@@ -26,25 +26,6 @@
 .fs-huge
   font-size: $triple-rhythm + $half-rhythm
 
-@media (max-width: $response-point)
-  .fs-tiny
-    font-size: $rhythm * 2
-
-  .fs-small
-    font-size: ($rhythm + $half-rhythm) * 2
-
-  .fs-normal
-    font-size: $double-rhythm * 2
-
-  .fs-big
-    font-size: ($double-rhythm + $half-rhythm) * 2
-
-  .fs-large
-    font-size: $triple-rhythm * 2
-
-  .fs-huge
-    font-size: ($triple-rhythm + $half-rhythm) * 2
-
 .link
   text-decoration: underline
   color: $main-link-color
@@ -52,3 +33,22 @@
 
 .td-n
   text-decoration: none
+
+@media only screen and (max-device-width: $response-point)
+  .fs-tiny
+    font-size: $rhythm * 2.75
+
+  .fs-small
+    font-size: ($rhythm + $half-rhythm) * 2.75
+
+  .fs-normal
+    font-size: $double-rhythm * 2.75
+
+  .fs-big
+    font-size: ($double-rhythm + $half-rhythm) * 2.75
+
+  .fs-large
+    font-size: $triple-rhythm * 2.75
+
+  .fs-huge
+    font-size: ($triple-rhythm + $half-rhythm) * 2.75

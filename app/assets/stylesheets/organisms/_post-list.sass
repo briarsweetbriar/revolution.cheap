@@ -6,9 +6,27 @@
   font-size: 1.5vw
   text-align: right
 
+.post-list__item
+  @extend .m-t-big
+  @extend .m-b
+  border-bottom: $rhythm/5 dashed $main-color
+  display: block
+
+.post-list__title
+  @extend .fs-huge
+  @extend .m-e-none
+
+.post-list__link
+  text-decoration: none
+  color: $main-color
+
+.post-list__date
+  @extend .m-e
+  @extend .fs-small
+
 .post-list--cinched
   @include opacity(65)
-  height: $quadrupole-rhythm*2
+  height: $quadrupole-rhythm * 2
   margin: $double-rhythm 0 $quadrupole-rhythm
   overflow: hidden
   border: $rhythm/5 dashed $main-color
@@ -32,30 +50,19 @@
   .edit-button, .comment-link
     display: none
 
-@media (max-width: $response-point)
+@media only screen and (max-device-width: $response-point)
+  .comment-link
+    font-size: 4vw
+
+  .post-list__date
+    @extend .fs-normal
+
   .post-list--cinched
-    height: $quadrupole-rhythm*4
-    margin: $quadrupole-rhythm 0 $quadrupole-rhythm*2
+    height: $quadrupole-rhythm * 4
+    margin: $quadrupole-rhythm 0 $quadrupole-rhythm * 2
+    border-width: .5vw
     .post-list__item
       margin: 0 $double-rhythm 0 0 !important
       width: $double-rhythm * 14
     .tag-list__item
       padding: $rhythm/1.5 $rhythm $half-rhythm
-
-.post-list__item
-  @extend .m-t-big
-  @extend .m-b
-  border-bottom: $rhythm/5 dashed $main-color
-  display: block
-
-.post-list__title
-  @extend .fs-huge
-  @extend .m-e-none
-
-.post-list__link
-  text-decoration: none
-  color: $main-color
-
-.post-list__date
-  @extend .m-e
-  @extend .fs-small

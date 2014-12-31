@@ -2,11 +2,12 @@
   display: block
   width: 100% !important
   height: $quadrupole-rhythm !important
-  border: thin solid $main-border-color
+  border: .1vw solid $main-border-color
   border-radius: 0
   background: $main-input-color
   cursor: pointer
 
-@media (max-width: $response-point)
+@media only screen and (max-device-width: $response-point)
   .btn
-    height: $quadrupole-rhythm * 2 !important
+    height: $quadrupole-rhythm * 2.75 !important
+    border-width: .5vw

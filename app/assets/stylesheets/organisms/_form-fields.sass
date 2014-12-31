@@ -9,7 +9,7 @@
     vertical-align: middle
   input, textarea, .file-upload, .autocomplete
     @extend .p-s
-    border: thin solid $main-border-color
+    border: .1vw solid $main-border-color
     border-radius: 0
     background-color: $main-input-color
   input, .file-upload, .autocomplete
@@ -20,11 +20,6 @@
     resize: none
     width: 100%
     height: 50vh
-
-@media (max-width: $response-point)
-  .form-fields
-    input, .file-upload, .autocomplete
-      height: $quadrupole-rhythm * 2
 
 .form-fields__item, .form-fields__btn
   @extend .m-t
@@ -45,6 +40,12 @@
 .error-block__item
   padding: $rhythm/2 $rhythm
 
-@media (max-width: $response-point)
+@media only screen and (max-device-width: $response-point)
+  .form-fields
+    input, textarea, .file-upload, .autocomplete
+      border-width: .5vw
+    input, .file-upload, .autocomplete
+      height: $quadrupole-rhythm * 2.75
+
   .error-block__item
-    padding: $rhythm $double-rhythm
+    padding: $rhythm $rhythm * 2.75

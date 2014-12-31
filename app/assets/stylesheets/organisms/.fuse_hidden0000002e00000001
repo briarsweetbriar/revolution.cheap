@@ -37,15 +37,14 @@
 
 @media only screen and (max-device-width: $response-point)
   .header
-    font-size: $triple-rhythm * 2
-    font-weight: 900
+    font-size: $rhythm * 1.8
 
   .nav
     li:first-child
       width: initial
 
   .nav__link
-    padding: $double-rhythm
+    padding: $rhythm $rhythm
 
   .nav__link--logout
     padding: $rhythm 0
