@@ -14,7 +14,7 @@ set :repo_url, 'https://github.com/timothycommoner/revolution.cheap.git'
 set :deploy_to, '/var/www/revolution'
  
 set :rbenv_type, :user # or :system, depends on your rbenv setup
-set :rbenv_ruby, '2.1.1'
+set :rbenv_ruby, '2.1.5'
  
  
 set :linked_files, %w{config/database.yml config/application.yml}
