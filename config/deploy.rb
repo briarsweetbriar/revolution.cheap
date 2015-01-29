@@ -22,12 +22,13 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
  
 namespace :deploy do
  
-  desc 'Restart application'
+  # desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      execute :touch, release_path.join('tmp/restart.txt')
+      execute "cd /var/www/revolution/current && bundle exec thin restart -e production"  ## -> line you should add
     end
   end
   #after 'deploy:symlink:shared', 'deploy:compile_assets_locally'
   after :finishing, 'deploy:cleanup'
+  after :publishing, :restart
 end
