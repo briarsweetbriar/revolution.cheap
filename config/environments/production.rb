@@ -27,7 +27,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Precompile additional assets
   config.assets.precompile += %w( *.otf *.ttf )
@@ -88,7 +88,7 @@ Rails.application.configure do
     :email => {
       :email_prefix => "[Revolution] ",
       :sender_address => %{"notifier" <notifier@revolution.cheap>},
-      :exception_recipients => %w{ timothythehuman@gmail.com }
+      :exception_recipients => %w{ null@revolution.cheap }
     }
 
 end
