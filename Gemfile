@@ -33,6 +33,7 @@ gem "slim"
 gem "quiet_assets"
 
 gem "sprockets", "<= 2.11.0"
+gem "non-stupid-digest-assets"
 gem "coffee-rails"
 gem "sass-rails"
 gem "uglifier"
