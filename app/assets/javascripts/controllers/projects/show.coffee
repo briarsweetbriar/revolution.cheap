@@ -4,8 +4,8 @@ Revolution.ProjectsShowController = Ember.ObjectController.extend(
   currentUserHasRole: false
 
   userRoleObserver: (->
+    userId = @get('session.userId')
     @set("currentUserHasRole", true) if userId != null
-    # userId = @get('session.userId')
     # @get('projectRoles').then (projectRoles) =>
     #   for role in projectRoles.content
     #     if `userId != null && role.get('user.id') == userId`
