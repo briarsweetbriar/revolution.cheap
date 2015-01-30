@@ -14,13 +14,6 @@ GIT
     active_model_serializers (0.9.0.pre)
       activemodel (>= 3.2)
 
-GIT
-  remote: git://github.com/valgusk/capistrano-rails-console.git
-  revision: 2e5f78e28faf0c21bce67a8c14c3678bf0407076
-  specs:
-    capistrano-rails-console (0.1.1)
-      capistrano (>= 3.0.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -80,6 +73,8 @@ GEM
     capistrano-rails (1.1.1)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    capistrano-rails-console (0.3.0)
+      capistrano (>= 3.0.0)
     capistrano-rbenv (2.0.2)
       capistrano (~> 3.1)
       sshkit (~> 1.3)
@@ -327,7 +322,7 @@ DEPENDENCIES
   capistrano (~> 3.1.0)
   capistrano-bundler (~> 1.1.2)
   capistrano-rails (~> 1.1.1)
-  capistrano-rails-console!
+  capistrano-rails-console
   capistrano-rbenv (~> 2.0)
   carrierwave (~> 0.9.0)
   coffee-rails

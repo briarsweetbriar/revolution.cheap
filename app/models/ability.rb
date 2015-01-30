@@ -14,9 +14,7 @@ class Ability
     can :create, Post if !user.new_record?
 
     # Project
-    can :update, Project do |project|
-      project.users_include?(user)
-    end
+    can :update, Project if !user.new_record?
 
     can :create, Project if !user.new_record?
 
